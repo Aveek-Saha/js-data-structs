@@ -1,0 +1,579 @@
+/*
+
+Implimented Data structures/ Algos
+- trees
+    - Binary Trees
+    - Binary Search Trees
+- Stack
+- Queue
+- Priority Queue
+- Graph 
+    - BFS
+    - DFS
+- Trie
+- Power set (recursion)
+*/
+
+
+// Trees
+
+function addNode(value) {
+    const children = []
+
+    return {
+        value,
+        children,
+
+        addChild(childValue) {
+            const child = addNode(childValue);
+            children.push(child)
+            return child
+        }
+    }
+}
+
+
+function Tree(rootValue) {
+    const root = addNode(rootValue);
+
+    return {
+        root,
+        display() {
+            var out = ""
+            read(root, 0)
+
+            function read(node, indent) {
+                out += "   ".repeat(indent) + node.value + " => \n"
+
+                if (node.children.length) {
+                    node.children.forEach(child => {
+                        // out += child.value +" "
+
+                        read(child, indent + 1)
+                    });
+                }
+
+            }
+            return out
+        }
+    }
+}
+
+
+// var a = Tree('a')
+// var b = a.root.addChild('b')
+// var c = a.root.addChild('c')
+// var d = a.root.addChild('d')
+// var e = a.root.addChild('e')
+
+// var f = b.addChild('f')
+// var g = b.addChild('g')
+
+// var h = c.addChild('h')
+// var i = g.addChild('i')
+
+// console.log(a.display());
+
+// Binary Trees
+
+function addBinaryNode(value) {
+    return {
+        value,
+        left: null,
+        right: null,
+        addChild(childValue) {
+            const childNode = addBinaryNode(childValue)
+
+            if (this.left === null)
+                this.left = childNode
+            else
+                this.right = childNode
+            return childNode
+        },
+        addLeftChild(childValue) {
+            const childNode = addBinaryNode(childValue)
+            this.left = childNode
+            return childNode
+        },
+        addRightChild(childValue) {
+            const childNode = addBinaryNode(childValue)
+            this.right = childNode
+            return childNode
+        }
+    }
+}
+
+
+
+function BinaryTree(rootValue) {
+
+    const root = addBinaryNode(rootValue)
+    return {
+        root,
+        display() {
+            inOrder(root)
+            function inOrder(node) {
+                if (node != null) {
+                    inOrder(node.left)
+                    console.log(node.value + " ");
+                    inOrder(node.right)
+                }
+                else
+                    return
+            }
+        },
+    }
+}
+
+
+// var tree = BinaryTree("4")
+
+// var a = tree.root.addChild("2")
+// var b = tree.root.addChild("5")
+
+// var c = a.addChild("1")
+// var d = a.addChild("3")
+
+// var e = b.addChild("6")
+// var f = b.addChild("7")
+
+// tree.display()
+
+// Binary Search Trees
+
+function addBinarySearchNode(value) {
+    return {
+        value,
+        left: null,
+        right: null,
+        insert(childValue) {
+            const childNode = addBinarySearchNode(childValue)
+
+            traverse(this, childNode)
+            function traverse(node, childNode) {
+                if (node == null)
+                    return childNode
+                // console.log(node.value);
+
+                if (childValue > node.value)
+                    node.right = traverse(node.right, childNode)
+                else
+                    node.left = traverse(node.left, childNode)
+
+                return node
+            }
+            return childNode
+        }
+    }
+}
+
+
+function BinarySearchTree(rootValue) {
+
+    const root = addBinarySearchNode(rootValue)
+    return {
+        root,
+        display() {
+            postOrder(root)
+            function inOrder(node) {
+                if (node != null) {
+                    inOrder(node.left)
+                    console.log(node.value + " ");
+                    inOrder(node.right)
+                }
+                else
+                    return
+            }
+
+            function postOrder(node) {
+                if (node != null) {
+                    postOrder(node.left)
+                    postOrder(node.right)
+                    console.log(node.value + " ");
+                }
+                else
+                    return
+            }
+        },
+        search(value) {
+            look(root)
+            function look(node) {
+
+                if (value > node.value)
+                    look(node.right)
+                else if (value == node.value)
+                    return node
+                else
+                    look(node.left)
+            }
+
+            return -1
+        }
+    }
+}
+
+// var tree = BinarySearchTree(4)
+
+// var a = tree.root.insert(2)
+// var b = tree.root.insert(8)
+
+// var c = a.insert(1)
+// var d = a.insert(3)
+
+// var e = b.insert(5)
+// var f = b.insert(9)
+
+// tree.display()
+
+// console.log(tree.root);
+
+
+
+// Stack
+
+function Stack() {
+    const stack = []
+    return {
+        stack,
+        push(value) {
+            stack.push(value)
+        },
+        pop() {
+            return stack.pop()
+        },
+        peek() {
+            return stack[stack.length - 1]
+        },
+        isEmpty() {
+            return stack.length != 0 ? false : true
+        }
+    }
+}
+
+// var stk = Stack()
+// stk.push(1)
+// stk.push(2)
+// stk.push(3)
+// stk.push(5)
+// stk.push(9)
+
+// var x = stk.pop()
+// x = stk.pop()
+
+
+// console.log(stk.peek());
+
+
+// Queue
+
+function Queue() {
+    const queue = []
+    return {
+        queue,
+        enqueue(value) {
+            queue.push(value)
+        },
+        dequeue() {
+            return queue.shift()
+        },
+        peek() {
+            return queue[0]
+        },
+        isEmpty() {
+            return queue.length != 0 ? false : true
+        }
+    }
+}
+
+// var q = Queue()
+
+// q.enqueue(4)
+// q.enqueue(1)
+// q.enqueue(7)
+// q.enqueue(3)
+// q.enqueue(9)
+// q.enqueue(0)
+// q.enqueue(2)
+
+// q.dequeue()
+// q.dequeue()
+// q.dequeue()
+
+
+// console.log(q.peek());
+
+
+
+// Priority Queue
+
+function PriorityQueue() {
+    const queue = []
+    return {
+        queue,
+        enqueue(value, priority) {
+            queue.push({ value, priority })
+            queue.sort(function (a, b) {
+                return a.priority - b.priority;
+            });
+        },
+        dequeue() {
+            return queue.shift()
+        },
+        peek() {
+            return queue[0].value
+        },
+        isEmpty() {
+            return queue.length != 0 ? false : true
+        }
+    }
+}
+
+// var q = PriorityQueue()
+
+// q.enqueue("this",4)
+// q.enqueue("that",1)
+// q.enqueue("here",7)
+// q.enqueue("there",3)
+// q.enqueue("where",9)
+// q.enqueue("near",0)
+// q.enqueue("hear",2)
+
+// q.dequeue()
+// q.dequeue()
+// q.dequeue()
+
+
+// console.log(q);
+
+
+
+
+// Graph
+
+function createGraphNode(value) {
+    const adjacentNodes = []
+
+    return {
+        value,
+        adjacentNodes,
+        addAdjacent(node) {
+            adjacentNodes.push(node)
+        }
+    }
+}
+
+function Graph(directed = false) {
+    const nodes = []
+    const edges = []
+
+    return {
+        directed,
+        nodes,
+        edges,
+        addNode(value) {
+            nodes.push(createGraphNode(value))
+        },
+        getNode(value) {
+            return nodes.find(node => node.value === value)
+        },
+        addEdge(value1, value2) {
+            if (this.getNode(value1) === undefined)
+                this.addNode(value1)
+            if (this.getNode(value2) === undefined)
+                this.addNode(value2)
+            const node1 = this.getNode(value1)
+            const node2 = this.getNode(value2)
+            // console.log(this);
+
+
+            node1.addAdjacent(node2)
+            edges.push([node1, node2])
+
+            if (!directed)
+                node2.addAdjacent(node1)
+        },
+        BFS(startValue) {
+            const order = []
+            const startNode = this.getNode(startValue)
+            const visited = {}
+            nodes.forEach(node => { visited[node.value] = false });
+
+            const q = Queue()
+            q.enqueue(startNode)
+
+            while (!q.isEmpty()) {
+                let currentNode = q.dequeue()
+                visited[currentNode.value] = true
+                order.push(currentNode.value);
+
+                currentNode.adjacentNodes.forEach(node => {
+                    if (!visited[node.value])
+                        q.enqueue(node)
+                });
+            }
+            return order
+        },
+        DFS(startValue) {
+            const order = []
+            const startNode = this.getNode(startValue)
+            const visited = {}
+            nodes.forEach(node => { visited[node.value] = false });
+
+            visit(startNode, visited)
+            function visit(currnode, visited) {
+                visited[currnode.value] = true
+                order.push(currnode.value)
+                currnode.adjacentNodes.forEach(node => {
+                    if (!visited[node.value])
+                        visit(node, visited)
+                });
+            }
+            return order
+        },
+        // topologicalSort(){
+
+        // }
+    }
+}
+
+// var g = Graph(true)
+// g.addEdge(0, 1);
+// g.addEdge(0, 2);
+// g.addEdge(1, 2);
+// g.addEdge(2, 0);
+// g.addEdge(2, 3);
+// g.addEdge(3, 3);
+
+// console.log(g.DFS(2));
+
+// Trie
+
+const alphabetSize = 26
+
+function createTrieNode() {
+    const endOfWord = false
+    const children = Array(alphabetSize).fill(null)
+    return {
+        endOfWord,
+        children
+    }
+}
+
+function Trie() {
+    const root = createTrieNode()
+
+    return {
+        root,
+        insertWord(value) {
+            let len = value.length
+            let temp = root
+
+            for (let level = 0; level < len; level++) {
+                let index = value.charCodeAt(level) - "a".charCodeAt(0);
+
+                if (temp.children[index] === null)
+                    temp.children[index] = createTrieNode()
+                temp = temp.children[index]
+            }
+
+            temp.endOfWord = true
+        },
+        search(value) {
+            let len = value.length
+            let temp = root
+
+            for (let level = 0; level < len; level++) {
+                let index = value.charCodeAt(level) - "a".charCodeAt(0);
+
+                if (temp.children[index] === null)
+                    return false
+                temp = temp.children[index]
+            }
+            return (temp !== null && temp.endOfWord)
+        }
+    }
+}
+
+
+// var tr = Trie()
+
+// var list = ["the", "a", "there", "answer", "any","by", "bye", "their"]
+// list.forEach(word => {
+//     tr.insertWord(word)
+// })
+
+// console.log(tr.search("these"))
+
+// Powerset
+
+function powerSet(array, index = 0, curr = "") {
+    const result = []
+    const len = array.length
+
+    powSet(index = 0, curr = "")
+    function powSet(index = 0, curr = "") {
+
+        // Base case
+        if (index == len) {
+            result.push(curr.split(""));
+            return;
+        }
+        powSet(index + 1, curr + array[index])
+        powSet(index + 1, curr)
+    }
+    return result
+}
+
+
+// console.log(powerSet("abc"));
+
+// Generate permutations
+
+function permutations(array) {
+    const n = array.length
+    let size = n
+    const result = []
+    heapPermutations(array, size)
+
+    function heapPermutations(array, size) {
+        if (size === 1) {
+            return ;
+        }
+
+        for (let i = 0; i < size; i++) {
+            heapPermutations(array, size - 1)
+
+            console.log(array)
+            if (size % 2 === 0) {
+                let x = array[0]
+                array[0] = array[size - 1]
+                array[size - 1] = x
+            }
+            else {
+                let x = array[i]
+                array[i] = array[size - 1]
+                array[size - 1] = x
+            }
+        }
+    }
+    // return result
+    // return array
+}
+// console.log(permutations([1, 2, 3]));
+
+
+exports.Trie = Trie
+exports.createTrieNode = createTrieNode
+exports.addNode = addNode
+exports.Tree = Tree
+exports.addBinaryNode = addBinaryNode
+exports.BinaryTree = BinaryTree
+exports.powerSet = powerSet
+exports.Graph = Graph
+exports.createGraphNode = createGraphNode
+exports.PriorityQueue = PriorityQueue
+exports.Queue = Queue
+exports.Stack = Stack
+exports.BinaryTree = BinarySearchTree
+exports.addBinarySearchNode = addBinarySearchNode
+
