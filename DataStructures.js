@@ -18,14 +18,14 @@ Implimented Data structures/ Algos
 // Trees
 
 function addNode(value) {
-    const children = []
+    let children = []
 
     return {
         value,
         children,
 
         addChild(childValue) {
-            const child = addNode(childValue);
+            let child = addNode(childValue);
             children.push(child)
             return child
         }
@@ -34,7 +34,7 @@ function addNode(value) {
 
 
 function Tree(rootValue) {
-    const root = addNode(rootValue);
+    let root = addNode(rootValue);
 
     return {
         root,
@@ -82,7 +82,7 @@ function addBinaryNode(value) {
         left: null,
         right: null,
         addChild(childValue) {
-            const childNode = addBinaryNode(childValue)
+            let childNode = addBinaryNode(childValue)
 
             if (this.left === null)
                 this.left = childNode
@@ -91,12 +91,12 @@ function addBinaryNode(value) {
             return childNode
         },
         addLeftChild(childValue) {
-            const childNode = addBinaryNode(childValue)
+            let childNode = addBinaryNode(childValue)
             this.left = childNode
             return childNode
         },
         addRightChild(childValue) {
-            const childNode = addBinaryNode(childValue)
+            let childNode = addBinaryNode(childValue)
             this.right = childNode
             return childNode
         }
@@ -107,7 +107,7 @@ function addBinaryNode(value) {
 
 function BinaryTree(rootValue) {
 
-    const root = addBinaryNode(rootValue)
+    let root = addBinaryNode(rootValue)
     return {
         root,
         display() {
@@ -147,7 +147,7 @@ function addBinarySearchNode(value) {
         left: null,
         right: null,
         insert(childValue) {
-            const childNode = addBinarySearchNode(childValue)
+            let childNode = addBinarySearchNode(childValue)
 
             traverse(this, childNode)
             function traverse(node, childNode) {
@@ -170,7 +170,7 @@ function addBinarySearchNode(value) {
 
 function BinarySearchTree(rootValue) {
 
-    const root = addBinarySearchNode(rootValue)
+    let root = addBinarySearchNode(rootValue)
     return {
         root,
         display() {
@@ -232,7 +232,7 @@ function BinarySearchTree(rootValue) {
 // Stack
 
 function Stack() {
-    const stack = []
+    let stack = []
     return {
         stack,
         push(value) {
@@ -267,7 +267,7 @@ function Stack() {
 // Queue
 
 function Queue() {
-    const queue = []
+    let queue = []
     return {
         queue,
         enqueue(value) {
@@ -307,7 +307,7 @@ function Queue() {
 // Priority Queue
 
 function PriorityQueue() {
-    const queue = []
+    let queue = []
     return {
         queue,
         enqueue(value, priority) {
@@ -351,7 +351,7 @@ function PriorityQueue() {
 // Graph
 
 function createGraphNode(value) {
-    const adjacentNodes = []
+    let adjacentNodes = []
 
     return {
         value,
@@ -363,8 +363,8 @@ function createGraphNode(value) {
 }
 
 function Graph(directed = false) {
-    const nodes = []
-    const edges = []
+    let nodes = []
+    let edges = []
 
     return {
         directed,
@@ -381,8 +381,8 @@ function Graph(directed = false) {
                 this.addNode(value1)
             if (this.getNode(value2) === undefined)
                 this.addNode(value2)
-            const node1 = this.getNode(value1)
-            const node2 = this.getNode(value2)
+            let node1 = this.getNode(value1)
+            let node2 = this.getNode(value2)
             // console.log(this);
 
 
@@ -393,12 +393,12 @@ function Graph(directed = false) {
                 node2.addAdjacent(node1)
         },
         BFS(startValue) {
-            const order = []
-            const startNode = this.getNode(startValue)
-            const visited = {}
+            let order = []
+            let startNode = this.getNode(startValue)
+            let visited = {}
             nodes.forEach(node => { visited[node.value] = false });
 
-            const q = Queue()
+            let q = Queue()
             q.enqueue(startNode)
 
             while (!q.isEmpty()) {
@@ -414,9 +414,9 @@ function Graph(directed = false) {
             return order
         },
         DFS(startValue) {
-            const order = []
-            const startNode = this.getNode(startValue)
-            const visited = {}
+            let order = []
+            let startNode = this.getNode(startValue)
+            let visited = {}
             nodes.forEach(node => { visited[node.value] = false });
 
             visit(startNode, visited)
@@ -448,11 +448,11 @@ function Graph(directed = false) {
 
 // Trie
 
-const alphabetSize = 26
+let alphabetSize = 26
 
 function createTrieNode() {
-    const endOfWord = false
-    const children = Array(alphabetSize).fill(null)
+    let endOfWord = false
+    let children = Array(alphabetSize).fill(null)
     return {
         endOfWord,
         children
@@ -460,7 +460,7 @@ function createTrieNode() {
 }
 
 function Trie() {
-    const root = createTrieNode()
+    let root = createTrieNode()
 
     return {
         root,
@@ -507,8 +507,8 @@ function Trie() {
 // Powerset
 
 function powerSet(array, index = 0, curr = "") {
-    const result = []
-    const len = array.length
+    let result = []
+    let len = array.length
 
     powSet(index = 0, curr = "")
     function powSet(index = 0, curr = "") {
@@ -530,9 +530,9 @@ function powerSet(array, index = 0, curr = "") {
 // Generate permutations
 
 function permutations(array) {
-    const n = array.length
+    let n = array.length
     let size = n
-    const result = []
+    let result = []
     heapPermutations(array, size)
 
     function heapPermutations(array, size) {
