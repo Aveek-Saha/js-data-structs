@@ -8,11 +8,6 @@ A small data structures library for JavaScript, also includes some algorithms li
 ### CDN
 `https://cdn.jsdelivr.net/npm/js-data-structs/DataStructures.js`
 
-## Usage
-The documentation for this is still not complete, so check the comments below the implimentations in [DataStructures.js](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js) for examples on useage. 
-
-Documentation will be ready soon!
-
 ## Implemented Data structures/ Algos-
 - Trees
     - Binary Trees
@@ -25,6 +20,19 @@ Documentation will be ready soon!
     - DFS
 - Trie
 - Power set (recursion method)
+
+## Usage
+- [Trees](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L63)
+- [Binary Trees](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L129)
+- [Binary Search Trees](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L215)
+- [Stack](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L253)
+- [Queue](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L288)
+- [Priority Queue](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L331)
+- [Graph](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L439)
+- [Trie](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L498)
+- [Power Set](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L528)
+
+Better documentation will be ready soon
 
 # Future features
 - [ ] Minified version
