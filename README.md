@@ -1,4 +1,8 @@
 # js-data-structs
+
+[![](https://img.shields.io/npm/dt/js-data-structs.svg?style=flat-square)](https://www.npmjs.com/package/js-data-structs)
+
+
 A small data structures library for JavaScript, also includes some algorithms like DFS and BFS.
 
 ## Installing
