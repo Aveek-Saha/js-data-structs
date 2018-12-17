@@ -46,7 +46,7 @@ A small data structures library for JavaScript, also includes some algorithms li
 Better documentation will be ready soon
 
 # Future features
-- [ ] Minified version
+- [x] Minified version
 
 - [ ] Heaps
     - [ ] Heapsort
