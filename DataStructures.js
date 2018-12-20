@@ -562,6 +562,116 @@ function permutations(array) {
 // console.log(permutations([1, 2, 3]));
 
 
+function createNode(value) {
+    return {
+        value,
+        next: null
+    }
+}
+
+function LinkedList() {
+    return {
+        head: null,
+        tail: null,
+        length: 0,
+        isEmpty() {
+            return this.length == 0
+        },
+        push(value) {
+            let node = createNode(value)
+            if (this.head == null) {
+                this.head = node
+                this.tail = node
+                this.length++
+                return node
+            }
+            this.tail.next = node
+            this.tail = node
+            this.length++
+        },
+        pop() {
+            let node = this.tail
+            
+            if(this.tail == this.head){
+                this.head = null
+                this.tail = null
+                this.length--
+                return node
+            }
+
+            let curr = this.head
+            while (curr.next!=node) {
+                curr = curr.next
+            }
+
+            curr.next = null
+            this.tail = curr
+            this.length--
+            return node
+        },
+        get(index) {
+            if (index < 0 || index >= this.length)
+                return null
+            if(index == 0)
+                return this.head
+            
+            let curr = this.head
+            let i = 0
+            while (index != i) {
+                curr = curr.next
+                i++
+            }
+            return curr
+        },
+        delete(index) {
+            if (index < 0 || index >= this.length)
+                return null
+            if (index == 0){
+                let deleted = this.head
+                this.head = this.head.next
+                this.length--
+                return deleted
+            }
+            let curr = this.head
+            let i = 0
+            while (index-1 != i) {
+                curr = curr.next
+                i++
+            }
+            let del = curr.next
+            if(del == this.tail){
+                this.tail = curr
+            }
+            curr.next = curr.next.next
+            this.length--
+            return del
+        },
+        display () {
+            
+            let curr = this.head
+            let result = ""
+            while (curr.next != null) {
+                result += curr.value.toString() + " ➞ "
+                curr = curr.next
+            }
+            result += curr.value.toString()
+            return result
+        }
+    }
+}
+
+// var list = LinkedList()
+// var vals = ['0', '1', '2', '3', '4', '5', '6']
+
+// vals.forEach(val => {
+//     list.push(val)
+// })
+// list.pop()
+// list.push("7")
+// var x = list.delete(2)
+// console.log(list.display());
+// console.log(x);
+
 exports.Trie = Trie
 exports.createTrieNode = createTrieNode
 exports.addNode = addNode
@@ -576,4 +686,6 @@ exports.Queue = Queue
 exports.Stack = Stack
 exports.BinaryTree = BinarySearchTree
 exports.addBinarySearchNode = addBinarySearchNode
+exports.createNode = createNode
+exports.LinkedList = LinkedList
 

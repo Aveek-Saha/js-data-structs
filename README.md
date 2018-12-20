@@ -23,6 +23,7 @@ A small data structures library for JavaScript, also includes some algorithms li
 - Trees
     - Binary Trees
     - Binary Search Trees
+- Linked List
 - Stack
 - Queue
 - Priority Queue
@@ -36,6 +37,7 @@ A small data structures library for JavaScript, also includes some algorithms li
 - [Trees](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L63)
 - [Binary Trees](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L129)
 - [Binary Search Trees](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L215)
+- [Linked List](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L633)
 - [Stack](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L253)
 - [Queue](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L288)
 - [Priority Queue](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L331)
@@ -48,6 +50,9 @@ Better documentation will be ready soon
 # Future features
 - [x] Minified version
 
+- [x] Linked List
+    - [ ] Circular Linked List
+    - [ ] Doubly Linked List
 - [ ] Heaps
     - [ ] Heapsort
     - [ ] Min heap
