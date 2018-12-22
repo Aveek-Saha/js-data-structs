@@ -20,6 +20,7 @@ A small data structures library for JavaScript, also includes some algorithms.
 
 ### CDN
 `https://cdn.jsdelivr.net/npm/js-data-structs/DataStructures.js`
+`https://cdn.jsdelivr.net/npm/js-data-structs/DataStructures.min.js`
 
 ## Implemented Data structures/ Algos-
 - Trees
