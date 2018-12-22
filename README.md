@@ -40,14 +40,15 @@ A small data structures library for JavaScript, also includes some algorithms li
 - [Trees](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L63)
 - [Binary Trees](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L129)
 - [Binary Search Trees](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L215)
-- [Linked List](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L633)
 - [Stack](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L253)
 - [Queue](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L288)
 - [Priority Queue](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L331)
-- [Heap Sort](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#710)
 - [Graph](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L439)
 - [Trie](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L498)
 - [Power Set](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L528)
+- [Linked List](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L633)
+- [Heap Sort](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L710)
+
 
 Better documentation will be ready soon
 
