@@ -11,7 +11,9 @@ Implimented Data structures/ Algos
     - BFS
     - DFS
 - Trie
-- Power set (recursion)
+- Power set
+- Linked List
+- Heap Sort
 */
 
 
@@ -672,6 +674,52 @@ function LinkedList() {
 // console.log(list.display());
 // console.log(x);
 
+// Heap Sort
+
+function heapify(array, n, i) {
+    let largest = i
+    let l = 2 * i + 1 // left child
+    let r = 2 * i + 2 // right child
+    
+    if (r < n && array[i].key < array[r].key)
+        largest = r
+    if (l < n && array[largest].key < array[l].key)
+        largest = l
+    if(largest != i){
+        var temp = array[i]
+        array[i] = array[largest]
+        array[largest] = temp
+        heapify(array, n, largest)
+    }
+}
+
+function HeapSort(array) {
+    let n = array.length
+    for(let i = array.length; i > -1; i--) {
+        heapify(array, n, i)
+    }
+
+    for (let j = array.length - 1; j > 0; j--) {
+        let temp = array[j];
+        array[j] = array[0]
+        array[0] = temp
+        heapify(array, j, 0)
+    }
+}
+
+// An array of objects with a key property must be passed. eg- {key: 8, value: "n", ...}
+
+// var arr = [
+//     { key: 4, data: "a" }, 
+//     { key: 1, data: "b" }, 
+//     { key: 3, data: "c" }, 
+//     { key: 5, data: "d" }, 
+//     { key: 2, data: "e" }
+// ]
+// HeapSort(arr)
+
+// console.log(arr);
+
 exports.Trie = Trie
 exports.createTrieNode = createTrieNode
 exports.addNode = addNode
@@ -688,4 +736,6 @@ exports.BinaryTree = BinarySearchTree
 exports.addBinarySearchNode = addBinarySearchNode
 exports.createNode = createNode
 exports.LinkedList = LinkedList
+exports.heapify = heapify
+exports.HeapSort = HeapSort
 

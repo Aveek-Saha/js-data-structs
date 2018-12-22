@@ -7,6 +7,8 @@ JS data structs<br>
 
 <img src ="https://img.shields.io/npm/dt/js-data-structs.svg?style=flat-square">
 <img src ="https://img.shields.io/npm/v/js-data-structs.svg?style=flat-square">
+<img src ="https://data.jsdelivr.com/v1/package/npm/js-data-structs/badge">
+
 </h3>
 
 
@@ -23,7 +25,6 @@ A small data structures library for JavaScript, also includes some algorithms li
 - Trees
     - Binary Trees
     - Binary Search Trees
-- Linked List
 - Stack
 - Queue
 - Priority Queue
@@ -31,7 +32,9 @@ A small data structures library for JavaScript, also includes some algorithms li
     - BFS
     - DFS
 - Trie
-- Power set (recursion method)
+- Power set
+- Linked List
+- Heap Sort
 
 ## Usage
 - [Trees](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L63)
@@ -41,6 +44,7 @@ A small data structures library for JavaScript, also includes some algorithms li
 - [Stack](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L253)
 - [Queue](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L288)
 - [Priority Queue](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L331)
+- [Heap Sort](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#710)
 - [Graph](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L439)
 - [Trie](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L498)
 - [Power Set](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L528)
@@ -53,10 +57,7 @@ Better documentation will be ready soon
 - [x] Linked List
     - [ ] Circular Linked List
     - [ ] Doubly Linked List
-- [ ] Heaps
-    - [ ] Heapsort
-    - [ ] Min heap
-    - [ ] Max heap
+- [x] Heapsort (Max heap)
 - [ ] Suffix trees
 - [ ] Sets
 - [ ] More Graph algorithms
