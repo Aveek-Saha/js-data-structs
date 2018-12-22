@@ -229,8 +229,6 @@ function BinarySearchTree(rootValue) {
 
 // console.log(tree.root);
 
-
-
 // Stack
 
 function Stack() {
@@ -344,11 +342,7 @@ function PriorityQueue() {
 // q.dequeue()
 // q.dequeue()
 
-
 // console.log(q);
-
-
-
 
 // Graph
 
@@ -496,7 +490,6 @@ function Trie() {
     }
 }
 
-
 // var tr = Trie()
 
 // var list = ["the", "a", "there", "answer", "any","by", "bye", "their"]
@@ -527,7 +520,7 @@ function powerSet(array, index = 0, curr = "") {
 }
 
 
-// console.log(powerSet("abc"));
+// console.log(powerSet([1,2,3]));
 
 // Generate permutations
 

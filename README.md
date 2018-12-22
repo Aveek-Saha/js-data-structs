@@ -12,7 +12,7 @@ JS data structs<br>
 </h3>
 
 
-A small data structures library for JavaScript, also includes some algorithms like DFS and BFS.
+A small data structures library for JavaScript, also includes some algorithms.
 
 ## Installing
 ### npm package
@@ -27,7 +27,7 @@ A small data structures library for JavaScript, also includes some algorithms li
     - Binary Search Trees
 - Stack
 - Queue
-- Priority Queue
+    - Priority Queue
 - Graph 
     - BFS
     - DFS
@@ -36,7 +36,7 @@ A small data structures library for JavaScript, also includes some algorithms li
 - Linked List
 - Heap Sort
 
-## Usage
+<!-- ## Usage
 - [Trees](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L63)
 - [Binary Trees](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L129)
 - [Binary Search Trees](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L215)
@@ -48,9 +48,9 @@ A small data structures library for JavaScript, also includes some algorithms li
 - [Power Set](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L528)
 - [Linked List](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L633)
 - [Heap Sort](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L710)
+ -->
+## [Usage guide](https://data-structs.netlify.com/)
 
-
-Better documentation will be ready soon
 
 # Future features
 - [x] Minified version
