@@ -470,24 +470,24 @@ function Graph(directed = false) {
     }
 }
 
-var matrix = [
-    [0, 1, 0, 0, 1],
-    [1, 0, 1, 1, 1],
-    [0, 1, 0, 1, 0],
-    [0, 1, 1, 0, 1],
-    [1, 1, 0, 1, 0],
-]
-var g = Graph(true)
-g.addEdge("A", "C");
-g.addEdge("A", "B");
-g.addEdge("A", "D");
-g.addEdge("C", "D");
-g.addEdge("D", "E");
-g.addEdge("E", "F");
-g.addEdge("B", "G"); 
+// var matrix = [
+//     [0, 1, 0, 0, 1],
+//     [1, 0, 1, 1, 1],
+//     [0, 1, 0, 1, 0],
+//     [0, 1, 1, 0, 1],
+//     [1, 1, 0, 1, 0],
+// ]
+// var g = Graph(true)
+// g.addEdge("A", "C");
+// g.addEdge("A", "B");
+// g.addEdge("A", "D");
+// g.addEdge("C", "D");
+// g.addEdge("D", "E");
+// g.addEdge("E", "F");
+// g.addEdge("B", "G"); 
 
 // g.fromAdjMatrix(matrix)
-console.log(g.topologicalSort());
+// console.log(g.topologicalSort());
 
 // Trie
 
