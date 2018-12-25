@@ -426,21 +426,48 @@ function Graph(directed = false) {
             }
             return order
         },
+        fromAdjMatrix(matrix, directed = false) {
+            if(matrix.length!= matrix[0].length)
+                return null
+            for (let i = 0; i < matrix.length; i++) {
+                if(!directed){
+                    for (let j = i + 1; j < matrix[i].length; j++) {
+                        if (matrix[i][j] == 1)
+                            this.addEdge(i, j)
+                    }
+                }
+                else{
+                    for (let j = 0; j < matrix[i].length; j++) {
+                        if (matrix[i][j] == 1)
+                            this.addEdge(i, j)
+                    }
+                }
+            }
+        },
         // topologicalSort(){
 
         // }
     }
 }
 
-// var g = Graph(true)
+var matrix = [
+    [0, 1, 0, 0, 1],
+    [1, 0, 1, 1, 1],
+    [0, 1, 0, 1, 0],
+    [0, 1, 1, 0, 1],
+    [1, 1, 0, 1, 0],
+]
+// var g = Graph()
+// g.fromAdjMatrix(matrix)
 // g.addEdge(0, 1);
-// g.addEdge(0, 2);
+// g.addEdge(0, 4);
 // g.addEdge(1, 2);
-// g.addEdge(2, 0);
+// g.addEdge(1, 3);
+// g.addEdge(1, 4);
 // g.addEdge(2, 3);
-// g.addEdge(3, 3);
+// g.addEdge(3, 4);
 
-// console.log(g.DFS(2));
+// console.log(g.DFS(1));
 
 // Trie
 
