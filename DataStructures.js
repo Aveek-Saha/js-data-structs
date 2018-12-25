@@ -686,17 +686,40 @@ function heapify(array, n, i) {
     }
 }
 
-function HeapSort(array) {
-    let n = array.length
-    for(let i = array.length; i > -1; i--) {
-        heapify(array, n, i)
-    }
+function heapifyMin(array, n, i) {
+    let smallest = i
+    let l = 2 * i + 1 // left child
+    let r = 2 * i + 2 // right child
 
-    for (let j = array.length - 1; j > 0; j--) {
+    if (r < n && array[i].key > array[r].key)
+        smallest = r
+    if (l < n && array[smallest].key > array[l].key)
+        smallest = l
+    if (smallest != i) {
+        var temp = array[i]
+        array[i] = array[smallest]
+        array[smallest] = temp
+        heapifyMin(array, n, smallest)
+    }
+}
+
+function HeapSort(array, min=false) {
+    let n = array.length
+        for (let i = parseInt(n / 2 - 1); i > -1; i--) {
+            if (!min)
+                heapify(array, n, i)
+            else
+                heapifyMin(array, n, i)
+        }
+
+    for (let j = n - 1; j > 0; j--) {
         let temp = array[j];
         array[j] = array[0]
         array[0] = temp
-        heapify(array, j, 0)
+        if (!min)
+            heapify(array, j, 0)
+        else
+            heapifyMin(array, j, 0)            
     }
 }
 
@@ -709,7 +732,7 @@ function HeapSort(array) {
 //     { key: 5, data: "d" }, 
 //     { key: 2, data: "e" }
 // ]
-// HeapSort(arr)
+// HeapSort(arr, true)
 
 // console.log(arr);
 
@@ -730,5 +753,6 @@ exports.addBinarySearchNode = addBinarySearchNode
 exports.createNode = createNode
 exports.LinkedList = LinkedList
 exports.heapify = heapify
+exports.heapifyMin = heapifyMin
 exports.HeapSort = HeapSort
 

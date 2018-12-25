@@ -37,6 +37,8 @@ A small data structures library for JavaScript, also includes some algorithms.
 - Power set
 - Linked List
 - Heap Sort
+    - Max heap
+    - Min heap
 
 <!-- ## Usage
 - [Trees](https://github.com/Aveek-Saha/js-data-structs/blob/master/DataStructures.js#L63)
@@ -60,7 +62,9 @@ A small data structures library for JavaScript, also includes some algorithms.
 - [x] Linked List
     - [ ] Circular Linked List
     - [ ] Doubly Linked List
-- [x] Heapsort (Max heap)
+- [x] Heapsort
+    - [x] Max heap
+    - [x] Min heap
 - [ ] Suffix trees
 - [ ] Sets
 - [ ] More Graph algorithms
