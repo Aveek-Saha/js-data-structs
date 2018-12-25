@@ -705,12 +705,12 @@ function heapifyMin(array, n, i) {
 
 function HeapSort(array, min=false) {
     let n = array.length
-        for (let i = parseInt(n / 2 - 1); i > -1; i--) {
-            if (!min)
-                heapify(array, n, i)
-            else
-                heapifyMin(array, n, i)
-        }
+    for (let i = parseInt(n / 2 - 1); i > -1; i--) {
+        if (!min)
+            heapify(array, n, i)
+        else
+            heapifyMin(array, n, i)
+    }
 
     for (let j = n - 1; j > 0; j--) {
         let temp = array[j];
