@@ -32,7 +32,9 @@
     "breadth first search",
     "dfs",
     "bfs",
-    "power set"
+    "power set",
+    "linked list",
+    "heap sort"
   ],
   "repository": {
     "type": "git",
