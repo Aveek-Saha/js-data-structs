@@ -33,6 +33,7 @@ A small data structures library for JavaScript, also includes some algorithms.
 - Graph 
     - BFS
     - DFS
+    - Topological Sort
 - Trie
 - Power set
 - Linked List
@@ -68,3 +69,4 @@ A small data structures library for JavaScript, also includes some algorithms.
 - [ ] Suffix trees
 - [ ] Sets
 - [ ] More Graph algorithms
+    - [x] Topological Sort
