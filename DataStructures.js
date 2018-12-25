@@ -444,9 +444,29 @@ function Graph(directed = false) {
                 }
             }
         },
-        // topologicalSort(){
+        topologicalSort(){
+            if(!directed)
+                return "Toplogical sort can only be done on Directed Acyclic Graphs"
+            let order = []
+            let visited = {}
+            nodes.forEach(node => { visited[node.value] = false });
 
-        // }
+            nodes.forEach(node =>{
+                if (!visited[node.value])
+                    topSort(node)
+            })
+            function topSort(currnode) {
+
+                visited[currnode.value] = true
+
+                currnode.adjacentNodes.forEach(node => {
+                    if (!visited[node.value])
+                        topSort(node)
+                });
+                order.push(currnode.value)
+            }
+            return order.reverse()
+        }
     }
 }
 
@@ -457,17 +477,17 @@ var matrix = [
     [0, 1, 1, 0, 1],
     [1, 1, 0, 1, 0],
 ]
-// var g = Graph()
-// g.fromAdjMatrix(matrix)
-// g.addEdge(0, 1);
-// g.addEdge(0, 4);
-// g.addEdge(1, 2);
-// g.addEdge(1, 3);
-// g.addEdge(1, 4);
-// g.addEdge(2, 3);
-// g.addEdge(3, 4);
+var g = Graph(true)
+g.addEdge("A", "C");
+g.addEdge("A", "B");
+g.addEdge("A", "D");
+g.addEdge("C", "D");
+g.addEdge("D", "E");
+g.addEdge("E", "F");
+g.addEdge("B", "G"); 
 
-// console.log(g.DFS(1));
+// g.fromAdjMatrix(matrix)
+console.log(g.topologicalSort());
 
 // Trie
 
