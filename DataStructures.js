@@ -1,19 +1,22 @@
 /*
 
-Implimented Data structures/ Algos
-- trees
+Implemented Data structures/ Algos
+- Trees
     - Binary Trees
     - Binary Search Trees
 - Stack
 - Queue
-- Priority Queue
-- Graph 
+    - Priority Queue
+- Graph
     - BFS
     - DFS
+    - Topological Sort
 - Trie
 - Power set
 - Linked List
 - Heap Sort
+    - Max heap
+    - Min heap
 */
 
 
