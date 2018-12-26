@@ -36,6 +36,7 @@ A small data structures library for JavaScript, also includes some algorithms.
     - Topological Sort
 - Trie
 - Power set
+- Heap's algorithm (array permutations)
 - Linked List
 - Heap Sort
     - Max heap

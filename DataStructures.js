@@ -13,6 +13,7 @@ Implemented Data structures/ Algos
     - Topological Sort
 - Trie
 - Power set
+- Heap's algorithm (array permutations)
 - Linked List
 - Heap Sort
     - Max heap
@@ -108,8 +109,6 @@ function addBinaryNode(value) {
     }
 }
 exports.addBinaryNode = addBinaryNode;
-
-
 
 function BinaryTree(rootValue) {
 
@@ -584,37 +583,45 @@ exports.powerSet = powerSet;
 // Generate permutations
 
 function permutations(array) {
-    let n = array.length;
-    let size = n;
-    let result = [];
-    heapPermutations(array, size)
 
-    function heapPermutations(array, size) {
-        if (size === 1) {
-            return ;
+    let n = array.length;
+    let result = "";
+    let output = [];
+    heaps_algorithm(array, n);
+    function heaps_algorithm(arr, n) {
+        if (n == 1) {
+            result += arr.join("") + " ";
+            return;
         }
 
-        for (let i = 0; i < size; i++) {
-            heapPermutations(array, size - 1)
-
-            console.log(array)
-            if (size % 2 === 0) {
-                let x = array[0];
-                array[0] = array[size - 1];
-                array[size - 1] = x;
-            }
-            else {
+        for (let i = 0; i < n ; i++) {
+            heaps_algorithm(arr, n - 1);
+            if (n % 2 == 0) {
                 let x = array[i];
-                array[i] = array[size - 1];
-                array[size - 1] = x;
+                array[i] = array[n - 1];
+                array[n - 1] = x;
+            }
+            else{
+                let x = array[0];
+                array[0] = array[n - 1];
+                array[n - 1] = x;
             }
         }
     }
-    // return result
-    // return array
+    let temp = result.split(" ");
+    let final = temp.slice(0, temp.length - 1);
+    final.forEach(ele => {
+        output.push(ele.split(""));
+    });
+    return output;
 }
-// console.log(permutations([1, 2, 3]));
+exports.permutations = permutations;
 
+// var perm_arr = [];
+// for (let i = 1; i <= 7; i++) {
+//     perm_arr.push(i);
+// }
+// console.log(permutations(perm_arr).length);
 
 function createNode(value) {
     return {
