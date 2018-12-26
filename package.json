@@ -1,6 +1,6 @@
 {
   "name": "js-data-structs",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A library of data structures",
   "main": "DataStructures.js",
   "scripts": {
@@ -34,7 +34,8 @@
     "bfs",
     "power set",
     "linked list",
-    "heap sort"
+    "heap sort",
+    "heaps algorithm"
   ],
   "repository": {
     "type": "git",
