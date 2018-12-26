@@ -11,6 +11,7 @@ Implemented Data structures/ Algos
     - BFS
     - DFS
     - Topological Sort
+    - Dijkstra's Algorithm
 - Trie
 - Power set
 - Heap's algorithm (array permutations)
@@ -353,7 +354,6 @@ exports.PriorityQueue = PriorityQueue;
 
 function createGraphNode(value) {
     let adjacentNodes = [];
-
     return {
         value,
         adjacentNodes,
@@ -378,7 +378,7 @@ function Graph(directed = false) {
         getNode(value) {
             return nodes.find(node => node.value === value);
         },
-        addEdge(value1, value2) {
+        addEdge(value1, value2, weight = 1) {
             if (this.getNode(value1) === undefined)
                 this.addNode(value1);
             if (this.getNode(value2) === undefined)
@@ -389,7 +389,7 @@ function Graph(directed = false) {
 
 
             node1.addAdjacent(node2);
-            edges.push([node1, node2]);
+            edges.push([node1, node2, weight]);
 
             if (!directed)
                 node2.addAdjacent(node1);
@@ -432,32 +432,40 @@ function Graph(directed = false) {
             }
             return order;
         },
-        fromAdjMatrix(matrix, directed = false) {
-            if(matrix.length!= matrix[0].length)
+        fromAdjMatrix(matrix, directed = false, weighted = false) {
+            if (matrix.length != matrix[0].length)
                 return null;
             for (let i = 0; i < matrix.length; i++) {
-                if(!directed){
+                if (!directed) {
                     for (let j = i + 1; j < matrix[i].length; j++) {
-                        if (matrix[i][j] == 1)
-                            this.addEdge(i, j);
+                        if (matrix[i][j] != 0){
+                            if(!weighted)
+                                this.addEdge(i, j);
+                            else
+                                this.addEdge(i, j, matrix[i][j]);
+                        }
                     }
                 }
-                else{
+                else {
                     for (let j = 0; j < matrix[i].length; j++) {
-                        if (matrix[i][j] == 1)
-                            this.addEdge(i, j);
+                        if (matrix[i][j] != 0){
+                            if (!weighted)
+                                this.addEdge(i, j);
+                            else
+                                this.addEdge(i, j, matrix[i][j]);
+                        }
                     }
                 }
             }
         },
-        topologicalSort(){
-            if(!directed)
+        topologicalSort() {
+            if (!directed)
                 return "Toplogical sort can only be done on Directed Acyclic Graphs";
             let order = [];
             let visited = {};
             nodes.forEach(node => { visited[node.value] = false });
 
-            nodes.forEach(node =>{
+            nodes.forEach(node => {
                 if (!visited[node.value])
                     topSort(node);
             })
@@ -472,10 +480,72 @@ function Graph(directed = false) {
                 order.push(currnode.value);
             }
             return order.reverse();
+        },
+        dijkstra(start) {
+            let n = nodes.length;
+            let distance = [];
+            let set = [];
+            nodes.forEach(node => {
+                distance[node.value] = Number.MAX_SAFE_INTEGER ;
+                set[node.value] = false;
+            });
+
+            distance[this.getNode(start).value] = 0;
+
+            for (let i = 0; i < n; i++) {
+                let u = minDistance(distance, set);
+                set[u.value] = true;
+
+                nodes.forEach(node => {
+                    let w = 0;
+                    for (const edge of edges) {
+                        if ((edge[0].value == u.value && edge[1].value == node.value) || 
+                            (edge[1].value == u.value && edge[2].value == node.value)) {
+                            w = edge[2];
+                            break;
+                        }
+                    }
+                    if (!set[node.value] && w != 0 && distance[u.value] != Number.MAX_SAFE_INTEGER &&
+                        distance[u.value] + w < distance[node.value])
+                        distance[node.value] = distance[u.value] + w;
+                });
+            }
+            return distance;
+
+            function minDistance(dist, set) {
+                let minDis = Number.MAX_SAFE_INTEGER;
+                let minIndex = -1;
+
+                nodes.forEach(node => {
+                    if (set[node.value] == false && dist[node.value] <= minDis) {
+                        minDis = dist[node.value];
+                        minIndex = node;
+                    }
+                });
+                return minIndex;
+            }
+        },
+        findEdgeWeight(u, v) {
+            edges.forEach(edge => {
+                if ((edge[0].value == u && edge[1].value == v) || (edge[1].value == u && edge[2].value == v))
+                    return edge[2];
+            })
         }
     }
 }
 exports.Graph = Graph;
+
+// var matrix = [
+//     [0, 4, 0, 0, 0, 0, 0, 8, 0],
+//     [4, 0, 8, 0, 0, 0, 0, 11, 0],
+//     [0, 8, 0, 7, 0, 4, 0, 0, 2],
+//     [0, 0, 7, 0, 9, 14, 0, 0, 0],
+//     [0, 0, 0, 9, 0, 10, 0, 0, 0],
+//     [0, 0, 4, 14, 10, 0, 2, 0, 0],
+//     [0, 0, 0, 0, 0, 2, 0, 1, 6],
+//     [8, 11, 0, 0, 0, 0, 1, 0, 7],
+//     [0, 0, 2, 0, 0, 0, 6, 7, 0]
+// ]
 
 // var matrix = [
 //     [0, 1, 0, 0, 1],
@@ -484,7 +554,7 @@ exports.Graph = Graph;
 //     [0, 1, 1, 0, 1],
 //     [1, 1, 0, 1, 0],
 // ]
-// var g = Graph(true)
+// var g = Graph()
 // g.addEdge("A", "C");
 // g.addEdge("A", "B");
 // g.addEdge("A", "D");
@@ -493,8 +563,8 @@ exports.Graph = Graph;
 // g.addEdge("E", "F");
 // g.addEdge("B", "G"); 
 
-// g.fromAdjMatrix(matrix)
-// console.log(g.topologicalSort());
+// g.fromAdjMatrix(matrix, false, true)
+// console.log(g.DFS("A"));
 
 // Trie
 
@@ -594,14 +664,14 @@ function permutations(array) {
             return;
         }
 
-        for (let i = 0; i < n ; i++) {
+        for (let i = 0; i < n; i++) {
             heaps_algorithm(arr, n - 1);
             if (n % 2 == 0) {
                 let x = array[i];
                 array[i] = array[n - 1];
                 array[n - 1] = x;
             }
-            else{
+            else {
                 let x = array[0];
                 array[0] = array[n - 1];
                 array[n - 1] = x;
@@ -653,8 +723,8 @@ function LinkedList() {
         },
         pop() {
             let node = this.tail;
-            
-            if(this.tail == this.head){
+
+            if (this.tail == this.head) {
                 this.head = null;
                 this.tail = null;
                 this.length--;
@@ -662,7 +732,7 @@ function LinkedList() {
             }
 
             let curr = this.head;
-            while (curr.next!=node) {
+            while (curr.next != node) {
                 curr = curr.next;
             }
 
@@ -674,9 +744,9 @@ function LinkedList() {
         get(index) {
             if (index < 0 || index >= this.length)
                 return null;
-            if(index == 0)
+            if (index == 0)
                 return this.head;
-            
+
             let curr = this.head;
             let i = 0;
             while (index != i) {
@@ -688,7 +758,7 @@ function LinkedList() {
         delete(index) {
             if (index < 0 || index >= this.length)
                 return null;
-            if (index == 0){
+            if (index == 0) {
                 let deleted = this.head;
                 this.head = this.head.next;
                 this.length--;
@@ -696,20 +766,20 @@ function LinkedList() {
             }
             let curr = this.head;
             let i = 0;
-            while (index-1 != i) {
+            while (index - 1 != i) {
                 curr = curr.next;
                 i++;
             }
             let del = curr.next;
-            if(del == this.tail){
+            if (del == this.tail) {
                 this.tail = curr;
             }
             curr.next = curr.next.next;
             this.length--;
             return del;
         },
-        display () {
-            
+        display() {
+
             let curr = this.head;
             let result = "";
             while (curr.next != null) {
@@ -741,12 +811,12 @@ function heapify(array, n, i) {
     let largest = i
     let l = 2 * i + 1; // left child
     let r = 2 * i + 2; // right child
-    
+
     if (r < n && array[i].key < array[r].key)
         largest = r;
     if (l < n && array[largest].key < array[l].key)
         largest = l;
-    if(largest != i){
+    if (largest != i) {
         var temp = array[i];
         array[i] = array[largest];
         array[largest] = temp;
@@ -773,7 +843,7 @@ function heapifyMin(array, n, i) {
 }
 exports.heapifyMin = heapifyMin;
 
-function HeapSort(array, min=false) {
+function HeapSort(array, min = false) {
     let n = array.length;
     for (let i = parseInt(n / 2 - 1); i > -1; i--) {
         if (!min)
