@@ -34,6 +34,7 @@ A small data structures library for JavaScript, also includes some algorithms.
     - BFS
     - DFS
     - Topological Sort
+    - Dijkstra's Algorithm
 - Trie
 - Power set
 - Heap's algorithm (array permutations)
