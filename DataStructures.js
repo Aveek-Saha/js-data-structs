@@ -364,12 +364,13 @@ function createGraphNode(value) {
 }
 exports.createGraphNode = createGraphNode;
 
-function Graph(directed = false) {
+function Graph(directed = false, weighted = false) {
     let nodes = [];
     let edges = [];
 
     return {
         directed,
+        weighted,
         nodes,
         edges,
         addNode(value) {
@@ -387,12 +388,13 @@ function Graph(directed = false) {
             let node2 = this.getNode(value2);
             // console.log(this);
 
-
             node1.addAdjacent(node2);
             edges.push([node1, node2, weight]);
 
-            if (!directed)
+            if (!this.directed){
                 node2.addAdjacent(node1);
+                edges.push([node2, node1, weight]);
+            }
         },
         BFS(startValue) {
             let order = [];
@@ -400,17 +402,19 @@ function Graph(directed = false) {
             let visited = {};
             nodes.forEach(node => { visited[node.value] = false });
 
+            visited[startNode.value] = true;
             let q = Queue();
             q.enqueue(startNode);
 
             while (!q.isEmpty()) {
                 let currentNode = q.dequeue()
-                visited[currentNode.value] = true
                 order.push(currentNode.value);
 
                 currentNode.adjacentNodes.forEach(node => {
-                    if (!visited[node.value])
+                    if (!visited[node.value]){
                         q.enqueue(node);
+                        visited[node.value] = true;
+                    }
                 });
             }
             return order;
@@ -432,14 +436,14 @@ function Graph(directed = false) {
             }
             return order;
         },
-        fromAdjMatrix(matrix, directed = false, weighted = false) {
+        fromAdjMatrix(matrix) {
             if (matrix.length != matrix[0].length)
                 return null;
             for (let i = 0; i < matrix.length; i++) {
                 if (!directed) {
                     for (let j = i + 1; j < matrix[i].length; j++) {
-                        if (matrix[i][j] != 0){
-                            if(!weighted)
+                        if (matrix[i][j] != 0) {
+                            if (!this.weighted)
                                 this.addEdge(i, j);
                             else
                                 this.addEdge(i, j, matrix[i][j]);
@@ -448,8 +452,8 @@ function Graph(directed = false) {
                 }
                 else {
                     for (let j = 0; j < matrix[i].length; j++) {
-                        if (matrix[i][j] != 0){
-                            if (!weighted)
+                        if (matrix[i][j] != 0) {
+                            if (!this.weighted)
                                 this.addEdge(i, j);
                             else
                                 this.addEdge(i, j, matrix[i][j]);
@@ -459,7 +463,7 @@ function Graph(directed = false) {
             }
         },
         topologicalSort() {
-            if (!directed)
+            if (!this.directed)
                 return "Toplogical sort can only be done on Directed Acyclic Graphs";
             let order = [];
             let visited = {};
@@ -483,18 +487,19 @@ function Graph(directed = false) {
         },
         dijkstra(start) {
             let n = nodes.length;
-            let distance = [];
-            let set = [];
+            let distance = {};
+            let set = {};
             nodes.forEach(node => {
                 distance[node.value] = Number.MAX_SAFE_INTEGER ;
                 set[node.value] = false;
             });
+            console.log(edges.length);
 
             distance[this.getNode(start).value] = 0;
 
             for (let i = 0; i < n; i++) {
                 let u = minDistance(distance, set);
-                set[u.value] = true;
+                set[u.value] = true;                
 
                 nodes.forEach(node => {
                     let w = 0;
@@ -547,24 +552,24 @@ exports.Graph = Graph;
 //     [0, 0, 2, 0, 0, 0, 6, 7, 0]
 // ]
 
-// var matrix = [
-//     [0, 1, 0, 0, 1],
-//     [1, 0, 1, 1, 1],
-//     [0, 1, 0, 1, 0],
-//     [0, 1, 1, 0, 1],
-//     [1, 1, 0, 1, 0],
-// ]
-// var g = Graph()
-// g.addEdge("A", "C");
-// g.addEdge("A", "B");
-// g.addEdge("A", "D");
-// g.addEdge("C", "D");
-// g.addEdge("D", "E");
-// g.addEdge("E", "F");
-// g.addEdge("B", "G"); 
+// var g = Graph(false, true)
+// g.addEdge(0, 1, 4)
+// g.addEdge(0, 7, 8)
+// g.addEdge(1, 2, 8)
+// g.addEdge(1, 7, 11)
+// g.addEdge(2, 3, 7)
+// g.addEdge(2, 8, 2)
+// g.addEdge(2, 5, 4)
+// g.addEdge(3, 4, 9)
+// g.addEdge(3, 5, 14)
+// g.addEdge(4, 5, 10)
+// g.addEdge(5, 6, 2)
+// g.addEdge(6, 7, 1)
+// g.addEdge(6, 8, 6)
+// g.addEdge(7, 8, 7)
 
-// g.fromAdjMatrix(matrix, false, true)
-// console.log(g.DFS("A"));
+// g.fromAdjMatrix(matrix)
+// console.log(g.dijkstra(0));
 
 // Trie
 
