@@ -19,6 +19,7 @@ Implemented Data structures/ Algos
 - Heap Sort
     - Max heap
     - Min heap
+- Z algorithm (pattern matching)
 */
 
 
@@ -389,7 +390,7 @@ function Graph(directed = false, weighted = false) {
             node1.addAdjacent(node2);
             edges.push([node1, node2, weight]);
 
-            if (!this.directed){
+            if (!this.directed) {
                 node2.addAdjacent(node1);
                 edges.push([node2, node1, weight]);
             }
@@ -409,7 +410,7 @@ function Graph(directed = false, weighted = false) {
                 order.push(currentNode.value);
 
                 currentNode.adjacentNodes.forEach(node => {
-                    if (!visited[node.value]){
+                    if (!visited[node.value]) {
                         q.enqueue(node);
                         visited[node.value] = true;
                     }
@@ -488,7 +489,7 @@ function Graph(directed = false, weighted = false) {
             let distance = {};
             let set = {};
             nodes.forEach(node => {
-                distance[node.value] = Number.MAX_SAFE_INTEGER ;
+                distance[node.value] = Number.MAX_SAFE_INTEGER;
                 set[node.value] = false;
             });
             console.log(edges.length);
@@ -497,12 +498,12 @@ function Graph(directed = false, weighted = false) {
 
             for (let i = 0; i < n; i++) {
                 let u = minDistance(distance, set);
-                set[u.value] = true;                
+                set[u.value] = true;
 
                 nodes.forEach(node => {
                     let w = 0;
                     for (const edge of edges) {
-                        if ((edge[0].value == u.value && edge[1].value == node.value) || 
+                        if ((edge[0].value == u.value && edge[1].value == node.value) ||
                             (edge[1].value == u.value && edge[2].value == node.value)) {
                             w = edge[2];
                             break;
@@ -880,3 +881,58 @@ exports.HeapSort = HeapSort;
 
 // console.log(arr);
 
+// Z algorithm
+
+function zSearch(text, pattern) {
+    let str = pattern + "$" + text;
+    let len = str.length;
+    let patLen = pattern.length;
+    let result = [];
+
+    let z = createZarray(str);
+
+    for (let i = 0; i < len; i++) {
+        if (z[i] == patLen)
+            result.push(i - patLen - 1);
+    }
+
+    function createZarray(string) {
+        let n = string.length;
+        let arr = Array(n);
+        arr[0] = 0;
+        let l = 0, r = 0;
+
+        for (let i = 1; i < n; i++) {
+            if (i > r) {
+                l = i;
+                r = i;
+                while (r < n && string[r - l] == string[r]) {
+                    r++;
+                }
+                arr[i] = r - l;
+                r--;
+            }
+            else {
+                let k = i - l;
+                if (arr[k] < r - i + 1)
+                    arr[i] = arr[k];
+
+                else {
+                    l = i;
+                    while (r < n && string[r - l] == string[r]) {
+                        r++;
+                    }
+                    arr[i] = r - l;
+                    r--;
+                }
+            }
+        }
+        return arr;
+    }
+    return result;
+}
+exports.zSearch = zSearch;
+
+// var text = "aabcaabxaaaz";
+
+// console.log(zSearch(text, "ab"));

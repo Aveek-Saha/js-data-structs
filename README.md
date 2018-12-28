@@ -42,6 +42,7 @@ A small data structures library for JavaScript, also includes some algorithms.
 - Heap Sort
     - Max heap
     - Min heap
+- Z algorithm (pattern matching)
 
 ## [Usage guide](https://data-structs.netlify.com/guide/trees.html)
 
