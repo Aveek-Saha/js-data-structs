@@ -315,11 +315,9 @@ function PriorityQueue() {
     let queue = [];
     return {
         queue,
-        enqueue(value, priority) {
-            queue.push({ value, priority })
-            queue.sort(function (a, b) {
-                return a.priority - b.priority;
-            });
+        enqueue(value, key) {
+            queue.push({ value, key })
+            HeapSort(queue);
         },
         dequeue() {
             return queue.shift();
