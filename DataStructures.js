@@ -20,7 +20,6 @@ Implemented Data structures/ Algos
     - Max heap
     - Min heap
 - Z algorithm (pattern matching)
-- N Queens
 */
 
 
@@ -725,6 +724,32 @@ function LinkedList() {
             this.tail.next = node;
             this.tail = node;
             this.length++;
+            return node;
+        },
+        insertAt(index, value) {
+            if (index < 0 || index > this.length)
+                return null;
+            if (index == this.length){
+                let temp = this.push(value);
+                return temp;
+            }
+            let node = createNode(value);
+            if(index == 0){
+                node.next = this.head;
+                this.head = node;
+                this.length++;
+                return node;
+            }
+            let curr = this.head;
+            let i = 0;
+            while (index - 1 != i) {
+                curr = curr.next;
+                i++;
+            }
+            node.next = curr.next;
+            curr.next = node;
+            this.length++;
+            return node;
         },
         pop() {
             let node = this.tail;
@@ -805,8 +830,8 @@ exports.LinkedList = LinkedList;
 //     list.push(val)
 // })
 // list.pop()
-// list.push("7")
-// var x = list.delete(2)
+// list.insertAt(2, "7")
+// var x = list.delete(0)
 // console.log(list.display());
 // console.log(x);
 
