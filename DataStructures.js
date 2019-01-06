@@ -1,5 +1,4 @@
 /*
-
 Implemented Data structures/ Algos
 - Trees
     - Binary Trees
@@ -20,6 +19,7 @@ Implemented Data structures/ Algos
     - Max heap
     - Min heap
 - Z algorithm (pattern matching)
+- N Queens
 */
 
 
@@ -51,7 +51,7 @@ function Tree(rootValue) {
             read(root, 0);
 
             function read(node, indent) {
-                out += "   ".repeat(indent) + node.value + " => \n";
+                out += "   ".repeat(indent) + node.value + " ➞ \n";
 
                 if (node.children.length) {
                     node.children.forEach(child => {
@@ -176,33 +176,53 @@ function addBinarySearchNode(value) {
 }
 exports.addBinarySearchNode = addBinarySearchNode;
 
-
+let order = {
+    pre: "pre",
+    post: "post",
+    in: "in"
+}
 function BinarySearchTree(rootValue) {
-
+    
     let root = addBinarySearchNode(rootValue);
     return {
         root,
-        display() {
-            postOrder(root);
+        display(order) {
+            let result = "";
+            if (order == "post") {
+                postOrder(root);
+            } else if (order == "pre") {
+                preOrder(root);                
+            } else {
+                inOrder(root);
+            }
             function inOrder(node) {
                 if (node != null) {
                     inOrder(node.left);
-                    console.log(node.value + " ");
+                    result += node.value + " ";
                     inOrder(node.right);
                 }
                 else
                     return;
             }
-
             function postOrder(node) {
                 if (node != null) {
                     postOrder(node.left);
                     postOrder(node.right);
-                    console.log(node.value + " ");
+                    result += node.value + " ";
                 }
                 else
                     return;
             }
+            function preOrder(node) {
+                if (node != null) {
+                    result += node.value + " ";
+                    postOrder(node.left);
+                    postOrder(node.right);
+                }
+                else
+                    return;
+            }
+            return result;
         },
         search(value) {
             look(root)
@@ -233,9 +253,7 @@ exports.BinarySearchTree = BinarySearchTree;
 // var e = b.insert(5)
 // var f = b.insert(9)
 
-// tree.display()
-
-// console.log(tree.root);
+// console.log(tree.display(order.pre));
 
 // Stack
 
@@ -1004,3 +1022,4 @@ function Nqueens(n) {
 exports.Nqueens = Nqueens;
 
 // console.log(Nqueens(5));
+
