@@ -180,7 +180,8 @@ let order = {
     pre: "pre",
     post: "post",
     in: "in"
-}
+};
+
 function BinarySearchTree(rootValue) {
     
     let root = addBinarySearchNode(rootValue);
