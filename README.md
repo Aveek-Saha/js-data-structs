@@ -44,6 +44,9 @@ A small data structures library for JavaScript, also includes some algorithms.
     - Min heap
 - Z algorithm (pattern matching)
 - N Queens
+- LZW
+    - Encoding
+    - Decoding
 
 ### [Usage guide](https://data-structs.netlify.com/guide/trees.html)
 
@@ -61,3 +64,6 @@ A small data structures library for JavaScript, also includes some algorithms.
 - [ ] More Graph algorithms
     - [x] Topological Sort
     - [x] Dijkstra's Algorithm
+- [x] LZW
+    - [x] Encoding
+    - [x] Decoding
