@@ -5,14 +5,15 @@ JS data structs<br>
 </h1>
 <h3 align="center">
 
-<img src ="https://img.shields.io/npm/dt/js-data-structs.svg?style=flat-square">
-<img src ="https://img.shields.io/npm/v/js-data-structs.svg?style=flat-square">
-<img src ="https://data.jsdelivr.com/v1/package/npm/js-data-structs/badge">
+<img src ="https://img.shields.io/npm/dt/js-data-structs.svg?style=for-the-badge">
+<img src ="https://img.shields.io/npm/v/js-data-structs.svg?style=for-the-badge">
+<!-- <img alt="jsDelivr hits (npm)" src="https://img.shields.io/jsdelivr/npm/hm/js-data-structs?style=for-the-badge"> -->
+<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/js-data-structs?style=for-the-badge">
 
 </h3>
 
 
-A small data structures library for JavaScript, also includes some algorithms.
+A small data structures and algorithms library for JavaScript.
 
 ## Installing
 ### npm package
@@ -47,6 +48,7 @@ A small data structures library for JavaScript, also includes some algorithms.
 - LZW
     - Encoding
     - Decoding
+- Fisher–Yates shuffle Algorithm
 
 ### [Usage guide](https://data-structs.netlify.com/guide/trees.html)
 
