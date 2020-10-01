@@ -1179,3 +1179,54 @@ function BinarySearch(arr, l, r, key) {
 
 // var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // console.log(BinarySearch(arr, 0, arr.length, 6))
+
+exports.BinarySearch = BinarySearch;
+
+// Rabin Karp
+
+function RabinKarp(pattern, text, prime, num_chars) {
+    var m = pattern.length
+    var n = text.length
+    var j = 0
+    var p = 0
+    var t = 0
+    var h = 1
+    var ind = []
+
+    for (let i = 0; i < m-1; i++)
+        h = (h * num_chars) % prime;    
+
+    for (let i = 0; i < m; i++) {
+        p = (num_chars * p + pattern[i].charCodeAt(0)) % prime; 
+        t = (num_chars * t + text[i].charCodeAt(0)) % prime; 
+    }
+
+
+    for (let i = 0; i <= n-m; i++) {
+        if (p==t) {
+            for (j = 0; j < m; j++) {
+                if (text[i+j].charCodeAt(0) != pattern[j].charCodeAt(0)) 
+                    break;
+            }
+
+            if (j == m)
+                ind.push(i)
+        }
+
+        if ( i < n-m ) 
+        { 
+            t = (num_chars*(t - text[i].charCodeAt(0)*h) + text[i+m].charCodeAt(0)) % prime; 
+            if (t < 0) 
+                t = (t + prime); 
+        } 
+    }
+    return ind
+}
+
+
+// var text = "AABAACAADAABAABA"
+// var pattern = "AABA"
+
+// console.log(RabinKarp(pattern, text, 101, 256))
+
+exports.RabinKarp = RabinKarp;
