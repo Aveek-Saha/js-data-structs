@@ -1155,3 +1155,27 @@ function fisherYates(array) {
 // console.log(fisherYates(arr))
 
 exports.fisherYates = fisherYates;
+
+
+// Binary search
+
+function BinarySearch(arr, l, r, key) {
+    if(r >= l){
+        var mid = l + parseInt((r - l)/2)
+
+        if(arr[mid] == key)
+            return mid
+        
+        else if(arr[mid] > key)
+            return BinarySearch(arr, l, mid-1, key) 
+        
+        else
+            return BinarySearch(arr, mid+1, r, key) 
+    }
+
+    else
+        return -1
+}
+
+// var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// console.log(BinarySearch(arr, 0, arr.length, 6))
