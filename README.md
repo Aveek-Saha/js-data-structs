@@ -49,6 +49,8 @@ A small data structures and algorithms library for JavaScript.
     - Encoding
     - Decoding
 - Fisher–Yates shuffle Algorithm
+- Binary Search
+- Rabin Karp
 
 ### [Usage guide](https://data-structs.netlify.com/guide/trees.html)
 

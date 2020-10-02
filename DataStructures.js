@@ -23,7 +23,9 @@ Implemented Data structures/ Algos
 - LZW
     - Encoding
     - Decoding
--Fisher–Yates shuffle Algorithm
+- Fisher–Yates shuffle Algorithm
+- Binary Search
+- Rabin Karp
 */
 
 
