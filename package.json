@@ -1,6 +1,6 @@
 {
   "name": "js-data-structs",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "A library of data structures and algorithms",
   "main": "DataStructures.js",
   "scripts": {
@@ -42,6 +42,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Aveek-Saha/js-data-structs.git"
+  },
+  "publishConfig": {
+      "registry": "https://npm.pkg.github.com/"
   },
   "author": "Aveek Saha <aveek.s98@gmail.com>",
   "homepage": "https://data-structs.netlify.com/",
