@@ -43,9 +43,6 @@
     "type": "git",
     "url": "https://github.com/Aveek-Saha/js-data-structs.git"
   },
-  "publishConfig": {
-      "registry": "https://npm.pkg.github.com/"
-  },
   "author": "Aveek Saha <aveek.s98@gmail.com>",
   "homepage": "https://data-structs.netlify.com/",
   "license": "MIT"
