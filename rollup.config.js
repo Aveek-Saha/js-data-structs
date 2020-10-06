@@ -13,7 +13,7 @@ export default [
     },
     {
         input: 'src/main.js',
-        plugins: [terser()],
+        // plugins: [terser()],
         output: {
             file: 'esm/index.js',
             format: 'esm'
