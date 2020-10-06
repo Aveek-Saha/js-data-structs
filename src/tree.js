@@ -1,21 +1,8 @@
+import { default as addNode } from "./add_node";
+
 // Trees
 
-export function addNode(value) {
-    let children = [];
-
-    return {
-        value,
-        children,
-
-        addChild(childValue) {
-            let child = addNode(childValue);
-            children.push(child);
-            return child;
-        }
-    }
-}
-
-export function Tree(rootValue) {
+export default function Tree(rootValue) {
     let root = addNode(rootValue);
 
     return {

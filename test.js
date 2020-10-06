@@ -1,5 +1,5 @@
-// import {Tree} from './esm'
-var Tree = require('./umd/DataStructures').Tree
+import {Tree} from './dist/DataStructures.esm'
+// var Tree = require('./dist/DataStructures.esm').Tree
 
 var a = Tree('a')
 var b = a.root.addChild('b')

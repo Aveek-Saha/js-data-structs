@@ -1,22 +1,24 @@
 import {terser} from 'rollup-plugin-terser';
+import pkg from './package.json';
 
-export default [
-    {
-        input: 'src/main.js',
-        plugins: [terser()],
-        output: {
-            file: 'umd/DataStructures.js',
+export default {
+    input: 'src/main.js',
+    output: [
+        {
+            file: pkg.main,
+            format: 'cjs'
+        },
+        {
+            file: pkg.module,
+            format: 'es'
+        },
+        {
+            file: pkg.browser,
             format: 'umd',
-            name: 'DataStructures',
-            esModule: false
+            name: 'DataStructures'
         }
-    },
-    {
-        input: 'src/main.js',
-        // plugins: [terser()],
-        output: {
-            file: 'esm/index.js',
-            format: 'esm'
-        }
-    }
-];
+    ],
+    plugins: [
+        terser()
+    ]
+};
