@@ -5,7 +5,7 @@ JS data structs<br>
 </h1>
 <h3 align="center">
 
-<img src ="https://img.shields.io/npm/dt/js-data-structs.svg?style=for-the-badge">
+<a href="https://www.npmjs.com/package/js-data-structs"><img src ="https://img.shields.io/npm/dt/js-data-structs.svg?style=for-the-badge"></a>
 <img src ="https://img.shields.io/npm/v/js-data-structs.svg?style=for-the-badge">
 <!-- <img alt="jsDelivr hits (npm)" src="https://img.shields.io/jsdelivr/npm/hm/js-data-structs?style=for-the-badge"> -->
 <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/js-data-structs?style=for-the-badge">
@@ -16,7 +16,7 @@ JS data structs<br>
 A small data structures and algorithms library for JavaScript.
 
 ## Installing
-### npm package
+### NPM package
 `npm i js-data-structs`
 
 ### CDN
