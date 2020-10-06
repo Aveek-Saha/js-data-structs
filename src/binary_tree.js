@@ -1,39 +1,8 @@
+import { default as addBinaryNode } from "./add_bin_node";
+
 // Binary Trees
 
-export function addBinaryNode(value) {
-    return {
-        value,
-        left: null,
-        right: null,
-        addChild(childValue) {
-            let childNode = addBinaryNode(childValue);
-
-            if (this.left === null)
-                this.left = childNode;
-            else
-                this.right = childNode;
-            return childNode;
-        },
-        addLeftChild(childValue) {
-            let childNode = addBinaryNode(childValue);
-            this.left = childNode;
-            return childNode;
-        },
-        addRightChild(childValue) {
-            let childNode = addBinaryNode(childValue);
-            this.right = childNode;
-            return childNode;
-        }
-    }
-}
-
-export const order = {
-    pre: "pre",
-    post: "post",
-    in: "in"
-};
-
-export function BinaryTree(rootValue) {
+export default function BinaryTree(rootValue) {
 
     let root = addBinaryNode(rootValue);
     return {

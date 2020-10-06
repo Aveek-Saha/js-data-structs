@@ -1,6 +1,6 @@
 // Priority Queue
 
-export function PriorityQueue() {
+export default function PriorityQueue() {
     let queue = [];
     return {
         queue,

@@ -1,6 +1,6 @@
 // Queue
 
-export function Queue() {
+export default function Queue() {
     let queue = [];
     return {
         queue,

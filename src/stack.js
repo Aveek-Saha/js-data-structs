@@ -1,6 +1,6 @@
 // Stack
 
-export function Stack() {
+export default function Stack() {
     let stack = [];
     return {
         stack,
