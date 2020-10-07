@@ -1,5 +1,6 @@
 import {terser} from 'rollup-plugin-terser';
 import { babel } from '@rollup/plugin-babel';
+import { eslint } from 'rollup-plugin-eslint';
 import pkg from './package.json';
 
 export default {
@@ -20,6 +21,11 @@ export default {
         }
     ],
     plugins: [
+        eslint({
+            exclude: [
+                'src/styles/**',
+            ]
+        }),
         babel({
             exclude: ['node_modules/**'],
             babelHelpers: 'bundled'
