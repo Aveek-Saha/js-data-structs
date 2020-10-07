@@ -5,12 +5,12 @@ export default function addBinaryNode(value) {
         left: null,
         right: null,
         addChild(childValue) {
-            let childNode = addBinaryNode(childValue);
+            let childNode;
 
             if (this.left === null)
-                this.left = childNode;
+                childNode = this.addLeftChild(childValue);
             else
-                this.right = childNode;
+                childNode = this.addRightChild(childValue);
             return childNode;
         },
         addLeftChild(childValue) {

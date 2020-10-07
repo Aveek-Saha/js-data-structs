@@ -1,14 +1,24 @@
-var { PriorityQueue } = require('./dist/js-data-structs.cjs');
+var { Graph } = require('./dist/js-data-structs.cjs');
 
+// var text = 'AABAACAADAABAABA';
+// var pattern = 'AABA';
 
-var q = PriorityQueue();
+// console.log(RabinKarp(pattern, text, 101, 256));
 
-q.enqueue('this',4);
-q.enqueue('that',1);
-q.enqueue('here',7);
-q.enqueue('there',3);
-q.enqueue('where',9);
-q.enqueue('near',0);
-q.enqueue('hear',2);
+var matrix = [
+    [0, 1, 0, 0, 0, 0, 0, 1, 0],
+    [1, 0, 1, 0, 0, 0, 0, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 0, 1],
+    [0, 0, 1, 0, 1, 1, 0, 0, 0],
+    [0, 0, 0, 1, 0, 1, 0, 0, 0],
+    [0, 0, 1, 1, 1, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0, 1, 0, 1, 1],
+    [1, 1, 0, 0, 0, 0, 1, 0, 1],
+    [0, 0, 1, 0, 0, 0, 1, 1, 0]
+];
+var g = Graph();
 
-console.log(q.peek());
+g.fromAdjMatrix(matrix);
+
+console.log(g.findEdgeWeight(5, 2));
+// console.log(g.edges);

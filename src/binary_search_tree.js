@@ -46,18 +46,21 @@ export default function BinarySearchTree(rootValue) {
             return result;
         },
         search(value) {
-            look(root);
+            var res = look(root);
             function look(node) {
-
-                if (value > node.value)
-                    look(node.right);
-                else if (value == node.value)
-                    return node;
+                if(node) {
+                    if (value > node.value)
+                        return look(node.right);
+                    else if (value == node.value)
+                        return node;
+                    else
+                        return look(node.left);
+                }
                 else
-                    look(node.left);
-            }
+                    return -1;
 
-            return -1;
+            }
+            return res;
         }
     };
 }

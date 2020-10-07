@@ -6,10 +6,8 @@ export default function BinarySearch(arr, l, r, key) {
 
         if(arr[mid] == key)
             return mid;
-        
         else if(arr[mid] > key)
             return BinarySearch(arr, l, mid-1, key); 
-        
         else
             return BinarySearch(arr, mid+1, r, key); 
     }

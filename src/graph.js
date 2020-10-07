@@ -35,6 +35,15 @@ export default function Graph(directed = false, weighted = false) {
                 edges.push([node2, node1, weight]);
             }
         },
+        displayEdges() {
+            let disEdges = [];
+
+            this.edges.forEach(edge => {
+                disEdges.push([edge[0].value, edge[1].value], edge[2]);
+            });
+
+            return disEdges;
+        },
         BFS(startValue) {
             let order = [];
             let startNode = this.getNode(startValue);
@@ -132,7 +141,6 @@ export default function Graph(directed = false, weighted = false) {
                 distance[node.value] = Number.MAX_SAFE_INTEGER;
                 set[node.value] = false;
             });
-            console.log(edges.length);
 
             distance[this.getNode(start).value] = 0;
 
@@ -142,7 +150,8 @@ export default function Graph(directed = false, weighted = false) {
 
                 nodes.forEach(node => {
                     let w = 0;
-                    for (const edge of edges) {
+                    for (let i = 0; i < edges.length; i++) {
+                        var edge = edges[i];
                         if ((edge[0].value == u.value && edge[1].value == node.value) ||
                             (edge[1].value == u.value && edge[2].value == node.value)) {
                             w = edge[2];
@@ -170,10 +179,11 @@ export default function Graph(directed = false, weighted = false) {
             }
         },
         findEdgeWeight(u, v) {
-            edges.forEach(edge => {
-                if ((edge[0].value == u && edge[1].value == v) || (edge[1].value == u && edge[2].value == v))
-                    return edge[2];
-            });
+            function match(edge){
+                return (edge[0].value == u && edge[1].value == v) || (edge[1].value == u && edge[0].value == v);
+            }
+            var res = this.edges.find(match);
+            return res[2];
         }
     };
 }
