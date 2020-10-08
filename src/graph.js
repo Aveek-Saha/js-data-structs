@@ -16,13 +16,11 @@ export default function Graph(directed = false, weighted = false) {
             nodes.push(createGraphNode(value));
         },
         getNode(value) {
-            return nodes.find(node => node.value === value);
+            return nodes.find((node) => node.value === value);
         },
         addEdge(value1, value2, weight = 1) {
-            if (this.getNode(value1) === undefined)
-                this.addNode(value1);
-            if (this.getNode(value2) === undefined)
-                this.addNode(value2);
+            if (this.getNode(value1) === undefined) this.addNode(value1);
+            if (this.getNode(value2) === undefined) this.addNode(value2);
             let node1 = this.getNode(value1);
             let node2 = this.getNode(value2);
             // console.log(this);
@@ -38,7 +36,7 @@ export default function Graph(directed = false, weighted = false) {
         displayEdges() {
             let disEdges = [];
 
-            this.edges.forEach(edge => {
+            this.edges.forEach((edge) => {
                 disEdges.push([edge[0].value, edge[1].value], edge[2]);
             });
 
@@ -48,7 +46,9 @@ export default function Graph(directed = false, weighted = false) {
             let order = [];
             let startNode = this.getNode(startValue);
             let visited = {};
-            nodes.forEach(node => { visited[node.value] = false; });
+            nodes.forEach((node) => {
+                visited[node.value] = false;
+            });
 
             visited[startNode.value] = true;
             let q = Queue();
@@ -58,7 +58,7 @@ export default function Graph(directed = false, weighted = false) {
                 let currentNode = q.dequeue();
                 order.push(currentNode.value);
 
-                currentNode.adjacentNodes.forEach(node => {
+                currentNode.adjacentNodes.forEach((node) => {
                     if (!visited[node.value]) {
                         q.enqueue(node);
                         visited[node.value] = true;
@@ -71,40 +71,35 @@ export default function Graph(directed = false, weighted = false) {
             let order = [];
             let startNode = this.getNode(startValue);
             let visited = {};
-            nodes.forEach(node => { visited[node.value] = false; });
+            nodes.forEach((node) => {
+                visited[node.value] = false;
+            });
 
             visit(startNode, visited);
             function visit(currnode, visited) {
                 visited[currnode.value] = true;
                 order.push(currnode.value);
-                currnode.adjacentNodes.forEach(node => {
-                    if (!visited[node.value])
-                        visit(node, visited);
+                currnode.adjacentNodes.forEach((node) => {
+                    if (!visited[node.value]) visit(node, visited);
                 });
             }
             return order;
         },
         fromAdjMatrix(matrix) {
-            if (matrix.length != matrix[0].length)
-                return null;
+            if (matrix.length != matrix[0].length) return null;
             for (let i = 0; i < matrix.length; i++) {
                 if (!directed) {
                     for (let j = i + 1; j < matrix[i].length; j++) {
                         if (matrix[i][j] != 0) {
-                            if (!this.weighted)
-                                this.addEdge(i, j);
-                            else
-                                this.addEdge(i, j, matrix[i][j]);
+                            if (!this.weighted) this.addEdge(i, j);
+                            else this.addEdge(i, j, matrix[i][j]);
                         }
                     }
-                }
-                else {
+                } else {
                     for (let j = 0; j < matrix[i].length; j++) {
                         if (matrix[i][j] != 0) {
-                            if (!this.weighted)
-                                this.addEdge(i, j);
-                            else
-                                this.addEdge(i, j, matrix[i][j]);
+                            if (!this.weighted) this.addEdge(i, j);
+                            else this.addEdge(i, j, matrix[i][j]);
                         }
                     }
                 }
@@ -115,19 +110,18 @@ export default function Graph(directed = false, weighted = false) {
                 return 'Toplogical sort can only be done on Directed Acyclic Graphs';
             let order = [];
             let visited = {};
-            nodes.forEach(node => { visited[node.value] = false; });
+            nodes.forEach((node) => {
+                visited[node.value] = false;
+            });
 
-            nodes.forEach(node => {
-                if (!visited[node.value])
-                    topSort(node);
+            nodes.forEach((node) => {
+                if (!visited[node.value]) topSort(node);
             });
             function topSort(currnode) {
-
                 visited[currnode.value] = true;
 
-                currnode.adjacentNodes.forEach(node => {
-                    if (!visited[node.value])
-                        topSort(node);
+                currnode.adjacentNodes.forEach((node) => {
+                    if (!visited[node.value]) topSort(node);
                 });
                 order.push(currnode.value);
             }
@@ -137,7 +131,7 @@ export default function Graph(directed = false, weighted = false) {
             let n = nodes.length;
             let distance = {};
             let set = {};
-            nodes.forEach(node => {
+            nodes.forEach((node) => {
                 distance[node.value] = Number.MAX_SAFE_INTEGER;
                 set[node.value] = false;
             });
@@ -148,18 +142,26 @@ export default function Graph(directed = false, weighted = false) {
                 let u = minDistance(distance, set);
                 set[u.value] = true;
 
-                nodes.forEach(node => {
+                nodes.forEach((node) => {
                     let w = 0;
                     for (let i = 0; i < edges.length; i++) {
                         var edge = edges[i];
-                        if ((edge[0].value == u.value && edge[1].value == node.value) ||
-                            (edge[1].value == u.value && edge[2].value == node.value)) {
+                        if (
+                            (edge[0].value == u.value &&
+                                edge[1].value == node.value) ||
+                            (edge[1].value == u.value &&
+                                edge[2].value == node.value)
+                        ) {
                             w = edge[2];
                             break;
                         }
                     }
-                    if (!set[node.value] && w != 0 && distance[u.value] != Number.MAX_SAFE_INTEGER &&
-                        distance[u.value] + w < distance[node.value])
+                    if (
+                        !set[node.value] &&
+                        w != 0 &&
+                        distance[u.value] != Number.MAX_SAFE_INTEGER &&
+                        distance[u.value] + w < distance[node.value]
+                    )
                         distance[node.value] = distance[u.value] + w;
                 });
             }
@@ -169,8 +171,11 @@ export default function Graph(directed = false, weighted = false) {
                 let minDis = Number.MAX_SAFE_INTEGER;
                 let minIndex = -1;
 
-                nodes.forEach(node => {
-                    if (set[node.value] == false && dist[node.value] <= minDis) {
+                nodes.forEach((node) => {
+                    if (
+                        set[node.value] == false &&
+                        dist[node.value] <= minDis
+                    ) {
                         minDis = dist[node.value];
                         minIndex = node;
                     }
@@ -179,8 +184,11 @@ export default function Graph(directed = false, weighted = false) {
             }
         },
         findEdgeWeight(u, v) {
-            function match(edge){
-                return (edge[0].value == u && edge[1].value == v) || (edge[1].value == u && edge[0].value == v);
+            function match(edge) {
+                return (
+                    (edge[0].value == u && edge[1].value == v) ||
+                    (edge[1].value == u && edge[0].value == v)
+                );
             }
             var res = this.edges.find(match);
             return res[2];

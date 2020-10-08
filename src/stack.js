@@ -11,8 +11,7 @@ export default function Stack() {
             return stack.pop();
         },
         peek() {
-            if (stack.length > 0) 
-                return stack[stack.length - 1];
+            if (stack.length > 0) return stack[stack.length - 1];
         },
         isEmpty() {
             return stack.length != 0 ? false : true;

@@ -13,16 +13,15 @@ export default function Tree(rootValue) {
 
             function read(node, indent) {
                 // out += '   '.repeat(indent) + node.value + ' ➞ \n';
-                out +=  node.value + ' ';
+                out += node.value + ' ';
 
                 if (node.children.length) {
-                    node.children.forEach(child => {
+                    node.children.forEach((child) => {
                         // out += child.value +" "
 
                         read(child, indent + 1);
                     });
                 }
-
             }
             return out;
         }

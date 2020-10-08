@@ -27,10 +27,13 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Run format check
+      run: npm run format-check
+
     - name: Run linter
       run: npm run lint
       
-    - name: Run the tests
+    - name: Run tests
       run: npm test
     
     - name: Codecov

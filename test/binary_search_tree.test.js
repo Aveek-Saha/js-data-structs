@@ -2,7 +2,6 @@ var { BinarySearchTree, order } = require('../dist/js-data-structs.cjs');
 
 describe('Check if nodes are printing in the correct order', () => {
     it('should print nodes in post order', () => {
-
         var tree = BinarySearchTree(4);
         var a = tree.root.insert(2);
         var b = tree.root.insert(8);
@@ -15,7 +14,6 @@ describe('Check if nodes are printing in the correct order', () => {
     });
 
     it('should print nodes in pre order', () => {
-
         var tree = BinarySearchTree(4);
         var a = tree.root.insert(2);
         var b = tree.root.insert(8);
@@ -28,7 +26,6 @@ describe('Check if nodes are printing in the correct order', () => {
     });
 
     it('should print nodes in order', () => {
-
         var tree = BinarySearchTree(4);
         var a = tree.root.insert(2);
         var b = tree.root.insert(8);
@@ -41,7 +38,6 @@ describe('Check if nodes are printing in the correct order', () => {
     });
 
     it('should return the node searched for', () => {
-        
         var tree = BinarySearchTree(4);
         var a = tree.root.insert(2);
         var b = tree.root.insert(8);
@@ -54,7 +50,6 @@ describe('Check if nodes are printing in the correct order', () => {
     });
 
     it('should return -1 if node does not exist', () => {
-        
         var tree = BinarySearchTree(4);
         var a = tree.root.insert(2);
         var b = tree.root.insert(8);
@@ -66,4 +61,3 @@ describe('Check if nodes are printing in the correct order', () => {
         expect(tree.search(10)).toBe(-1);
     });
 });
-

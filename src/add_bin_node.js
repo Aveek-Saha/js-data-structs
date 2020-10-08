@@ -1,4 +1,3 @@
-
 export default function addBinaryNode(value) {
     return {
         value,
@@ -7,10 +6,8 @@ export default function addBinaryNode(value) {
         addChild(childValue) {
             let childNode;
 
-            if (this.left === null)
-                childNode = this.addLeftChild(childValue);
-            else
-                childNode = this.addRightChild(childValue);
+            if (this.left === null) childNode = this.addLeftChild(childValue);
+            else childNode = this.addRightChild(childValue);
             return childNode;
         },
         addLeftChild(childValue) {

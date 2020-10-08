@@ -6,11 +6,9 @@ describe('Check stack functions', () => {
         expect(stk.isEmpty()).toBe(true);
         stk.push(1);
         expect(stk.isEmpty()).toBe(false);
-
     });
 
     it('should show most recently added element', () => {
-
         var stk = Stack();
         stk.push(1);
         stk.push(2);
@@ -32,7 +30,6 @@ describe('Check stack functions', () => {
     });
 
     it('should be empty', () => {
-
         var stk = Stack();
         stk.push(1);
         stk.push(2);

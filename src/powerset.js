@@ -5,7 +5,6 @@ export default function PowerSet(array, index = 0, curr = '') {
     let len = array.length;
 
     function powSet(index = 0, curr = '') {
-
         // Base case
         if (index == len) {
             result.push(curr.split(''));
