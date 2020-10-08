@@ -41,7 +41,7 @@ function addNode(value) {
             children.push(child);
             return child;
         }
-    }
+    };
 }
 exports.addNode = addNode;
 
@@ -51,15 +51,15 @@ function Tree(rootValue) {
     return {
         root,
         display() {
-            var out = "";
+            var out = '';
             read(root, 0);
 
             function read(node, indent) {
-                out += "   ".repeat(indent) + node.value + " ➞ \n";
+                out += '   '.repeat(indent) + node.value + ' ➞ \n';
 
                 if (node.children.length) {
                     node.children.forEach(child => {
-                        // out += child.value +" "
+                        // out += child.value +' '
 
                         read(child, indent + 1);
                     });
@@ -68,7 +68,7 @@ function Tree(rootValue) {
             }
             return out;
         }
-    }
+    };
 }
 exports.Tree = Tree;
 
@@ -112,14 +112,14 @@ function addBinaryNode(value) {
             this.right = childNode;
             return childNode;
         }
-    }
+    };
 }
 exports.addBinaryNode = addBinaryNode;
 
 let order = {
-    pre: "pre",
-    post: "post",
-    in: "in"
+    pre: 'pre',
+    post: 'post',
+    in: 'in'
 };
 exports.order = order;
 
@@ -129,10 +129,10 @@ function BinaryTree(rootValue) {
     return {
         root,
         display(order) {
-            let result = "";
-            if (order == "post") {
+            let result = '';
+            if (order == 'post') {
                 postOrder(root);
-            } else if (order == "pre") {
+            } else if (order == 'pre') {
                 preOrder(root);
             } else {
                 inOrder(root);
@@ -140,7 +140,7 @@ function BinaryTree(rootValue) {
             function inOrder(node) {
                 if (node != null) {
                     inOrder(node.left);
-                    result += node.value + " ";
+                    result += node.value + ' ';
                     inOrder(node.right);
                 }
                 else
@@ -150,14 +150,14 @@ function BinaryTree(rootValue) {
                 if (node != null) {
                     postOrder(node.left);
                     postOrder(node.right);
-                    result += node.value + " ";
+                    result += node.value + ' ';
                 }
                 else
                     return;
             }
             function preOrder(node) {
                 if (node != null) {
-                    result += node.value + " ";
+                    result += node.value + ' ';
                     postOrder(node.left);
                     postOrder(node.right);
                 }
@@ -166,21 +166,21 @@ function BinaryTree(rootValue) {
             }
             return result;
         },
-    }
+    };
 }
 exports.BinaryTree = BinaryTree;
 
 
-// var tree = BinaryTree("4")
+// var tree = BinaryTree('4')
 
-// var a = tree.root.addChild("2")
-// var b = tree.root.addChild("5")
+// var a = tree.root.addChild('2')
+// var b = tree.root.addChild('5')
 
-// var c = a.addChild("1")
-// var d = a.addChild("3")
+// var c = a.addChild('1')
+// var d = a.addChild('3')
 
-// var e = b.addChild("6")
-// var f = b.addChild("7")
+// var e = b.addChild('6')
+// var f = b.addChild('7')
 
 // console.log(tree.display(order.post));
 
@@ -192,7 +192,7 @@ function addBinarySearchNode(value) {
         left: null,
         right: null,
         insert(childValue) {
-            let childNode = addBinarySearchNode(childValue)
+            let childNode = addBinarySearchNode(childValue);
 
             traverse(this, childNode);
             function traverse(node, childNode) {
@@ -209,7 +209,7 @@ function addBinarySearchNode(value) {
             }
             return childNode;
         }
-    }
+    };
 }
 exports.addBinarySearchNode = addBinarySearchNode;
 
@@ -219,10 +219,10 @@ function BinarySearchTree(rootValue) {
     return {
         root,
         display(order) {
-            let result = "";
-            if (order == "post") {
+            let result = '';
+            if (order == 'post') {
                 postOrder(root);
-            } else if (order == "pre") {
+            } else if (order == 'pre') {
                 preOrder(root);                
             } else {
                 inOrder(root);
@@ -230,7 +230,7 @@ function BinarySearchTree(rootValue) {
             function inOrder(node) {
                 if (node != null) {
                     inOrder(node.left);
-                    result += node.value + " ";
+                    result += node.value + ' ';
                     inOrder(node.right);
                 }
                 else
@@ -240,14 +240,14 @@ function BinarySearchTree(rootValue) {
                 if (node != null) {
                     postOrder(node.left);
                     postOrder(node.right);
-                    result += node.value + " ";
+                    result += node.value + ' ';
                 }
                 else
                     return;
             }
             function preOrder(node) {
                 if (node != null) {
-                    result += node.value + " ";
+                    result += node.value + ' ';
                     postOrder(node.left);
                     postOrder(node.right);
                 }
@@ -257,7 +257,7 @@ function BinarySearchTree(rootValue) {
             return result;
         },
         search(value) {
-            look(root)
+            look(root);
             function look(node) {
 
                 if (value > node.value)
@@ -268,9 +268,9 @@ function BinarySearchTree(rootValue) {
                     look(node.left);
             }
 
-            return -1
+            return -1;
         }
-    }
+    };
 }
 exports.BinarySearchTree = BinarySearchTree;
 
@@ -305,7 +305,7 @@ function Stack() {
         isEmpty() {
             return stack.length != 0 ? false : true;
         }
-    }
+    };
 }
 exports.Stack = Stack;
 
@@ -341,7 +341,7 @@ function Queue() {
         isEmpty() {
             return queue.length != 0 ? false : true;
         }
-    }
+    };
 }
 exports.Queue = Queue;
 
@@ -367,7 +367,7 @@ function PriorityQueue() {
     return {
         queue,
         enqueue(value, key) {
-            queue.push({ value, key })
+            queue.push({ value, key });
             HeapSort(queue);
         },
         dequeue() {
@@ -379,19 +379,19 @@ function PriorityQueue() {
         isEmpty() {
             return queue.length != 0 ? false : true;
         }
-    }
+    };
 }
 exports.PriorityQueue = PriorityQueue;
 
 // var q = PriorityQueue()
 
-// q.enqueue("this",4)
-// q.enqueue("that",1)
-// q.enqueue("here",7)
-// q.enqueue("there",3)
-// q.enqueue("where",9)
-// q.enqueue("near",0)
-// q.enqueue("hear",2)
+// q.enqueue('this',4)
+// q.enqueue('that',1)
+// q.enqueue('here',7)
+// q.enqueue('there',3)
+// q.enqueue('where',9)
+// q.enqueue('near',0)
+// q.enqueue('hear',2)
 
 // q.dequeue()
 // q.dequeue()
@@ -409,7 +409,7 @@ function createGraphNode(value) {
         addAdjacent(node) {
             adjacentNodes.push(node);
         }
-    }
+    };
 }
 exports.createGraphNode = createGraphNode;
 
@@ -449,14 +449,14 @@ function Graph(directed = false, weighted = false) {
             let order = [];
             let startNode = this.getNode(startValue);
             let visited = {};
-            nodes.forEach(node => { visited[node.value] = false });
+            nodes.forEach(node => { visited[node.value] = false; });
 
             visited[startNode.value] = true;
             let q = Queue();
             q.enqueue(startNode);
 
             while (!q.isEmpty()) {
-                let currentNode = q.dequeue()
+                let currentNode = q.dequeue();
                 order.push(currentNode.value);
 
                 currentNode.adjacentNodes.forEach(node => {
@@ -472,7 +472,7 @@ function Graph(directed = false, weighted = false) {
             let order = [];
             let startNode = this.getNode(startValue);
             let visited = {};
-            nodes.forEach(node => { visited[node.value] = false });
+            nodes.forEach(node => { visited[node.value] = false; });
 
             visit(startNode, visited);
             function visit(currnode, visited) {
@@ -513,15 +513,15 @@ function Graph(directed = false, weighted = false) {
         },
         topologicalSort() {
             if (!this.directed)
-                return "Toplogical sort can only be done on Directed Acyclic Graphs";
+                return 'Toplogical sort can only be done on Directed Acyclic Graphs';
             let order = [];
             let visited = {};
-            nodes.forEach(node => { visited[node.value] = false });
+            nodes.forEach(node => { visited[node.value] = false; });
 
             nodes.forEach(node => {
                 if (!visited[node.value])
                     topSort(node);
-            })
+            });
             function topSort(currnode) {
 
                 visited[currnode.value] = true;
@@ -583,9 +583,9 @@ function Graph(directed = false, weighted = false) {
             edges.forEach(edge => {
                 if ((edge[0].value == u && edge[1].value == v) || (edge[1].value == u && edge[2].value == v))
                     return edge[2];
-            })
+            });
         }
-    }
+    };
 }
 exports.Graph = Graph;
 
@@ -630,7 +630,7 @@ function createTrieNode() {
     return {
         endOfWord,
         children
-    }
+    };
 }
 exports.createTrieNode = createTrieNode;
 
@@ -645,7 +645,7 @@ function Trie() {
             let temp = root;
 
             for (let level = 0; level < len; level++) {
-                let index = value.charCodeAt(level) - "a".charCodeAt(0);
+                let index = value.charCodeAt(level) - 'a'.charCodeAt(0);
 
                 if (temp.children[index] === null)
                     temp.children[index] = createTrieNode();
@@ -659,7 +659,7 @@ function Trie() {
             let temp = root;
 
             for (let level = 0; level < len; level++) {
-                let index = value.charCodeAt(level) - "a".charCodeAt(0);
+                let index = value.charCodeAt(level) - 'a'.charCodeAt(0);
 
                 if (temp.children[index] === null)
                     return false;
@@ -667,31 +667,31 @@ function Trie() {
             }
             return (temp !== null && temp.endOfWord);
         }
-    }
+    };
 }
 exports.Trie = Trie;
 
 // var tr = Trie()
 
-// var list = ["the", "a", "there", "answer", "any","by", "bye", "their"]
+// var list = ['the', 'a', 'there', 'answer', 'any','by', 'bye', 'their']
 // list.forEach(word => {
 //     tr.insertWord(word)
 // })
 
-// console.log(tr.search("these"))
+// console.log(tr.search('these'))
 
 // Powerset
 
-function powerSet(array, index = 0, curr = "") {
+function powerSet(array, index = 0, curr = '') {
     let result = [];
     let len = array.length;
 
-    powSet(index = 0, curr = "");
-    function powSet(index = 0, curr = "") {
+    powSet(index = 0, curr = '');
+    function powSet(index = 0, curr = '') {
 
         // Base case
         if (index == len) {
-            result.push(curr.split(""));
+            result.push(curr.split(''));
             return;
         }
         powSet(index + 1, curr + array[index]);
@@ -709,12 +709,12 @@ exports.powerSet = powerSet;
 function permutations(array) {
 
     let n = array.length;
-    let result = "";
+    let result = '';
     let output = [];
     heaps_algorithm(array, n);
     function heaps_algorithm(arr, n) {
         if (n == 1) {
-            result += arr.join("") + " ";
+            result += arr.join('') + ' ';
             return;
         }
 
@@ -732,10 +732,10 @@ function permutations(array) {
             }
         }
     }
-    let temp = result.split(" ");
+    let temp = result.split(' ');
     let final = temp.slice(0, temp.length - 1);
     final.forEach(ele => {
-        output.push(ele.split(""));
+        output.push(ele.split(''));
     });
     return output;
 }
@@ -751,7 +751,7 @@ function createNode(value) {
     return {
         value,
         next: null
-    }
+    };
 }
 exports.createNode = createNode;
 
@@ -833,7 +833,7 @@ function LinkedList() {
                 curr = curr.next;
                 i++;
             }
-            return curr
+            return curr;
         },
         delete(index) {
             if (index < 0 || index >= this.length)
@@ -861,15 +861,15 @@ function LinkedList() {
         display() {
 
             let curr = this.head;
-            let result = "";
+            let result = '';
             while (curr.next != null) {
-                result += curr.value.toString() + " ➞ ";
+                result += curr.value.toString() + ' ➞ ';
                 curr = curr.next;
             }
             result += curr.value.toString();
             return result;
         }
-    }
+    };
 }
 exports.LinkedList = LinkedList;
 
@@ -880,7 +880,7 @@ exports.LinkedList = LinkedList;
 //     list.push(val)
 // })
 // list.pop()
-// list.insertAt(2, "7")
+// list.insertAt(2, '7')
 // var x = list.delete(0)
 // console.log(list.display());
 // console.log(x);
@@ -888,7 +888,7 @@ exports.LinkedList = LinkedList;
 // Heap Sort
 
 function heapify(array, n, i) {
-    let largest = i
+    let largest = i;
     let l = 2 * i + 1; // left child
     let r = 2 * i + 2; // right child
 
@@ -944,14 +944,14 @@ function HeapSort(array, min = false) {
 }
 exports.HeapSort = HeapSort;
 
-// An array of objects with a key property must be passed. eg- {key: 8, value: "n", ...}
+// An array of objects with a key property must be passed. eg- {key: 8, value: 'n', ...}
 
 // var arr = [
-//     { key: 4, data: "a" }, 
-//     { key: 1, data: "b" }, 
-//     { key: 3, data: "c" }, 
-//     { key: 5, data: "d" }, 
-//     { key: 2, data: "e" }
+//     { key: 4, data: 'a' }, 
+//     { key: 1, data: 'b' }, 
+//     { key: 3, data: 'c' }, 
+//     { key: 5, data: 'd' }, 
+//     { key: 2, data: 'e' }
 // ]
 // HeapSort(arr, true)
 
@@ -960,7 +960,7 @@ exports.HeapSort = HeapSort;
 // Z algorithm
 
 function zSearch(text, pattern) {
-    let str = pattern + "$" + text;
+    let str = pattern + '$' + text;
     let len = str.length;
     let patLen = pattern.length;
     let result = [];
@@ -1009,9 +1009,9 @@ function zSearch(text, pattern) {
 }
 exports.zSearch = zSearch;
 
-// var text = "aabcaabxaaaz";
+// var text = 'aabcaabxaaaz';
 
-// console.log(zSearch(text, "ab"));
+// console.log(zSearch(text, 'ab'));
 
 function Nqueens(n) {
 
@@ -1064,7 +1064,7 @@ function LZW(chars = null) {
         allChars = Array.apply(null, Array(127 - 32))
             .map(function (x, i) {
                 return String.fromCharCode(i + 32);
-            }).join("");
+            }).join('');
     } else {
         allChars = chars;
     }
@@ -1074,11 +1074,11 @@ function LZW(chars = null) {
             let dict = {};
             let code = 0;
 
-            allChars.split("").forEach(char => {
+            allChars.split('').forEach(char => {
                 dict[char] = code;
                 code += 1;
             });
-            let data = string.split("");
+            let data = string.split('');
             let s = data[0];
             let output = [];
             let ch;
@@ -1088,7 +1088,7 @@ function LZW(chars = null) {
                 if (dict[s + ch] != null) {
                     s = s + ch;
                 } else {
-                    output.push(dict[s])
+                    output.push(dict[s]);
                     dict[s + ch] = code;
                     code += 1;
                     s = ch;
@@ -1100,7 +1100,7 @@ function LZW(chars = null) {
         decode(encoded) {
             let dict = {};
             let code = 0;
-            allChars.split("").forEach(char => {
+            allChars.split('').forEach(char => {
                 dict[code] = char;
                 code += 1;
             });
@@ -1126,16 +1126,16 @@ function LZW(chars = null) {
             }
             return string;
         }
-    }
+    };
     
 }
 exports.LZW = LZW;
 
-// let string = "W#hdppmQccXXurfjxrrrjfjnvQa8%%%%%%%MbJpW%&*mmOJJJJLQ0Omh&%%%%%BBBBBBB%%%%%%8a0CUUYXzYzzzcuxnr/1{{)"
+// let string = 'W#hdppmQccXXurfjxrrrjfjnvQa8%%%%%%%MbJpW%&*mmOJJJJLQ0Omh&%%%%%BBBBBBB%%%%%%8a0CUUYXzYzzzcuxnr/1{{)'
 
-// let lzw = LZW("@$B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\" ^`'.")
-// console.log("Original length:", string.length);
-// console.log("Encoded length:", lzw.encode(string).length);
+// let lzw = LZW('@$B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\' ^`'.')
+// console.log('Original length:', string.length);
+// console.log('Encoded length:', lzw.encode(string).length);
 
 // console.log(lzw.decode(lzw.encode(string)) == string);
 
@@ -1161,20 +1161,20 @@ exports.fisherYates = fisherYates;
 
 function BinarySearch(arr, l, r, key) {
     if(r >= l){
-        var mid = l + parseInt((r - l)/2)
+        var mid = l + parseInt((r - l)/2);
 
         if(arr[mid] == key)
-            return mid
+            return mid;
         
         else if(arr[mid] > key)
-            return BinarySearch(arr, l, mid-1, key) 
+            return BinarySearch(arr, l, mid-1, key); 
         
         else
-            return BinarySearch(arr, mid+1, r, key) 
+            return BinarySearch(arr, mid+1, r, key); 
     }
 
     else
-        return -1
+        return -1;
 }
 
 // var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -1185,13 +1185,13 @@ exports.BinarySearch = BinarySearch;
 // Rabin Karp
 
 function RabinKarp(pattern, text, prime, num_chars) {
-    var m = pattern.length
-    var n = text.length
-    var j = 0
-    var p = 0
-    var t = 0
-    var h = 1
-    var ind = []
+    var m = pattern.length;
+    var n = text.length;
+    var j = 0;
+    var p = 0;
+    var t = 0;
+    var h = 1;
+    var ind = [];
 
     for (let i = 0; i < m-1; i++)
         h = (h * num_chars) % prime;    
@@ -1210,7 +1210,7 @@ function RabinKarp(pattern, text, prime, num_chars) {
             }
 
             if (j == m)
-                ind.push(i)
+                ind.push(i);
         }
 
         if ( i < n-m ) 
@@ -1220,12 +1220,12 @@ function RabinKarp(pattern, text, prime, num_chars) {
                 t = (t + prime); 
         } 
     }
-    return ind
+    return ind;
 }
 
 
-// var text = "AABAACAADAABAABA"
-// var pattern = "AABA"
+// var text = 'AABAACAADAABAABA'
+// var pattern = 'AABA'
 
 // console.log(RabinKarp(pattern, text, 101, 256))
 

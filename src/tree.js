@@ -1,4 +1,4 @@
-import { default as addNode } from "./add_node";
+import { default as addNode } from './add_node';
 
 // Trees
 
@@ -8,11 +8,11 @@ export default function Tree(rootValue) {
     return {
         root,
         display() {
-            var out = "";
+            var out = '';
             read(root, 0);
 
             function read(node, indent) {
-                out += "   ".repeat(indent) + node.value + " ➞ \n";
+                out += '   '.repeat(indent) + node.value + ' ➞ \n';
 
                 if (node.children.length) {
                     node.children.forEach(child => {
@@ -25,5 +25,5 @@ export default function Tree(rootValue) {
             }
             return out;
         }
-    }
+    };
 }

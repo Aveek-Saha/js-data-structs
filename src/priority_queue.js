@@ -5,7 +5,7 @@ export default function PriorityQueue() {
     return {
         queue,
         enqueue(value, key) {
-            queue.push({ value, key })
+            queue.push({ value, key });
             HeapSort(queue);
         },
         dequeue() {
@@ -17,5 +17,5 @@ export default function PriorityQueue() {
         isEmpty() {
             return queue.length != 0 ? false : true;
         }
-    }
+    };
 }

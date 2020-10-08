@@ -4,7 +4,7 @@ export default function addBinarySearchNode(value) {
         left: null,
         right: null,
         insert(childValue) {
-            let childNode = addBinarySearchNode(childValue)
+            let childNode = addBinarySearchNode(childValue);
 
             traverse(this, childNode);
             function traverse(node, childNode) {
@@ -21,5 +21,5 @@ export default function addBinarySearchNode(value) {
             }
             return childNode;
         }
-    }
+    };
 }

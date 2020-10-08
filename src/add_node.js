@@ -12,5 +12,5 @@ export default function addNode(value) {
             children.push(child);
             return child;
         }
-    }
+    };
 }

@@ -23,5 +23,5 @@ export default function addBinaryNode(value) {
             this.right = childNode;
             return childNode;
         }
-    }
+    };
 }

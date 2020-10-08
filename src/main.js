@@ -1,6 +1,6 @@
-export {order} from './constants'
+export {order} from './constants';
 export {default as Tree} from './tree';
-export {default as addNode} from './add_node'
+export {default as addNode} from './add_node';
 export {default as addBinaryNode} from './add_bin_node';
 export {default as BinaryTree} from './binary_tree';
 export {default as BinarySearchTree} from './binary_search_tree';

@@ -1,4 +1,4 @@
-import { default as addBinarySearchNode } from "./add_bst_node";
+import { default as addBinarySearchNode } from './add_bst_node';
 
 // Binary Search Trees
 
@@ -8,10 +8,10 @@ export default function BinarySearchTree(rootValue) {
     return {
         root,
         display(order) {
-            let result = "";
-            if (order == "post") {
+            let result = '';
+            if (order == 'post') {
                 postOrder(root);
-            } else if (order == "pre") {
+            } else if (order == 'pre') {
                 preOrder(root);                
             } else {
                 inOrder(root);
@@ -19,7 +19,7 @@ export default function BinarySearchTree(rootValue) {
             function inOrder(node) {
                 if (node != null) {
                     inOrder(node.left);
-                    result += node.value + " ";
+                    result += node.value + ' ';
                     inOrder(node.right);
                 }
                 else
@@ -29,14 +29,14 @@ export default function BinarySearchTree(rootValue) {
                 if (node != null) {
                     postOrder(node.left);
                     postOrder(node.right);
-                    result += node.value + " ";
+                    result += node.value + ' ';
                 }
                 else
                     return;
             }
             function preOrder(node) {
                 if (node != null) {
-                    result += node.value + " ";
+                    result += node.value + ' ';
                     postOrder(node.left);
                     postOrder(node.right);
                 }
@@ -46,7 +46,7 @@ export default function BinarySearchTree(rootValue) {
             return result;
         },
         search(value) {
-            look(root)
+            look(root);
             function look(node) {
 
                 if (value > node.value)
@@ -57,7 +57,7 @@ export default function BinarySearchTree(rootValue) {
                     look(node.left);
             }
 
-            return -1
+            return -1;
         }
-    }
+    };
 }

@@ -16,5 +16,5 @@ export default function Stack() {
         isEmpty() {
             return stack.length != 0 ? false : true;
         }
-    }
+    };
 }

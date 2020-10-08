@@ -16,5 +16,5 @@ export default function Queue() {
         isEmpty() {
             return queue.length != 0 ? false : true;
         }
-    }
+    };
 }

@@ -1,4 +1,4 @@
-import { default as addBinaryNode } from "./add_bin_node";
+import { default as addBinaryNode } from './add_bin_node';
 
 // Binary Trees
 
@@ -8,10 +8,10 @@ export default function BinaryTree(rootValue) {
     return {
         root,
         display(order) {
-            let result = "";
-            if (order == "post") {
+            let result = '';
+            if (order == 'post') {
                 postOrder(root);
-            } else if (order == "pre") {
+            } else if (order == 'pre') {
                 preOrder(root);
             } else {
                 inOrder(root);
@@ -19,7 +19,7 @@ export default function BinaryTree(rootValue) {
             function inOrder(node) {
                 if (node != null) {
                     inOrder(node.left);
-                    result += node.value + " ";
+                    result += node.value + ' ';
                     inOrder(node.right);
                 }
                 else
@@ -29,14 +29,14 @@ export default function BinaryTree(rootValue) {
                 if (node != null) {
                     postOrder(node.left);
                     postOrder(node.right);
-                    result += node.value + " ";
+                    result += node.value + ' ';
                 }
                 else
                     return;
             }
             function preOrder(node) {
                 if (node != null) {
-                    result += node.value + " ";
+                    result += node.value + ' ';
                     postOrder(node.left);
                     postOrder(node.right);
                 }
@@ -45,5 +45,5 @@ export default function BinaryTree(rootValue) {
             }
             return result;
         },
-    }
+    };
 }
