@@ -1,6 +1,5 @@
 import { default as createTrieNode } from './add_trie_node';
 
-
 export default function Trie(alphabetSize) {
     let root = createTrieNode(alphabetSize);
 
@@ -27,11 +26,10 @@ export default function Trie(alphabetSize) {
             for (let level = 0; level < len; level++) {
                 let index = value.charCodeAt(level) - 'a'.charCodeAt(0);
 
-                if (temp.children[index] === null)
-                    return false;
+                if (temp.children[index] === null) return false;
                 temp = temp.children[index];
             }
-            return (temp !== null && temp.endOfWord);
+            return temp !== null && temp.endOfWord;
         }
     };
 }

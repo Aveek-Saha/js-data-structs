@@ -1,7 +1,6 @@
 // Generate permutations
 
 export default function Permutations(array) {
-
     let n = array.length;
     let result = '';
     let output = [];
@@ -18,8 +17,7 @@ export default function Permutations(array) {
                 let x = array[i];
                 array[i] = array[n - 1];
                 array[n - 1] = x;
-            }
-            else {
+            } else {
                 let x = array[0];
                 array[0] = array[n - 1];
                 array[n - 1] = x;
@@ -28,7 +26,7 @@ export default function Permutations(array) {
     }
     let temp = result.split(' ');
     let final = temp.slice(0, temp.length - 1);
-    final.forEach(ele => {
+    final.forEach((ele) => {
         output.push(ele.split(''));
     });
     return output;

@@ -24,14 +24,13 @@ export default function LinkedList() {
             return node;
         },
         insertAt(index, value) {
-            if (index < 0 || index > this.length)
-                return null;
-            if (index == this.length){
+            if (index < 0 || index > this.length) return null;
+            if (index == this.length) {
                 let temp = this.push(value);
                 return temp;
             }
             let node = createLinkedNode(value);
-            if(index == 0){
+            if (index == 0) {
                 node.next = this.head;
                 this.head = node;
                 this.length++;
@@ -69,10 +68,8 @@ export default function LinkedList() {
             return node;
         },
         get(index) {
-            if (index < 0 || index >= this.length)
-                return null;
-            if (index == 0)
-                return this.head;
+            if (index < 0 || index >= this.length) return null;
+            if (index == 0) return this.head;
 
             let curr = this.head;
             let i = 0;
@@ -83,8 +80,7 @@ export default function LinkedList() {
             return curr;
         },
         delete(index) {
-            if (index < 0 || index >= this.length)
-                return null;
+            if (index < 0 || index >= this.length) return null;
             if (index == 0) {
                 let deleted = this.head;
                 this.head = this.head.next;
@@ -106,10 +102,8 @@ export default function LinkedList() {
             return del;
         },
         display() {
-
             let curr = this.head;
-            if(curr === null)
-                return '';
+            if (curr === null) return '';
             let result = '';
             while (curr.next != null) {
                 result += curr.value.toString() + ' ➞ ';

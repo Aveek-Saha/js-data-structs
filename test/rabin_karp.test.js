@@ -12,5 +12,4 @@ describe('Check Binary search', () => {
 
         expect(BinarySearch(arr, 0, arr.length, 11)).toBe(-1);
     });
-
 });
