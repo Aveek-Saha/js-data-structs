@@ -1,3 +1,5 @@
+import { default as HeapSort } from './heapsort';
+
 // Priority Queue
 
 export default function PriorityQueue() {

@@ -3,3 +3,5 @@ export const order = {
     post: 'post',
     in: 'in'
 };
+
+export const alphabetSize = 26;

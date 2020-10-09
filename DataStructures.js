@@ -747,13 +747,15 @@ exports.permutations = permutations;
 // }
 // console.log(permutations(perm_arr).length);
 
-function createNode(value) {
+// Linked List
+
+function createLinkedNode(value) {
     return {
         value,
         next: null
     };
 }
-exports.createNode = createNode;
+exports.createLinkedNode = createLinkedNode;
 
 function LinkedList() {
     return {
@@ -764,7 +766,7 @@ function LinkedList() {
             return this.length == 0;
         },
         push(value) {
-            let node = createNode(value);
+            let node = createLinkedNode(value);
             if (this.head == null) {
                 this.head = node;
                 this.tail = node;
@@ -783,7 +785,7 @@ function LinkedList() {
                 let temp = this.push(value);
                 return temp;
             }
-            let node = createNode(value);
+            let node = createLinkedNode(value);
             if(index == 0){
                 node.next = this.head;
                 this.head = node;
