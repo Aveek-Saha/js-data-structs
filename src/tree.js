@@ -12,7 +12,8 @@ export default function Tree(rootValue) {
             read(root, 0);
 
             function read(node, indent) {
-                out += '   '.repeat(indent) + node.value + ' ➞ \n';
+                // out += '   '.repeat(indent) + node.value + ' ➞ \n';
+                out +=  node.value + ' ';
 
                 if (node.children.length) {
                     node.children.forEach(child => {
