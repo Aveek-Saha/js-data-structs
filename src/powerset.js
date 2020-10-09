@@ -1,6 +1,6 @@
 // Powerset
 
-export default function powerSet(array, index = 0, curr = '') {
+export default function PowerSet(array, index = 0, curr = '') {
     let result = [];
     let len = array.length;
 

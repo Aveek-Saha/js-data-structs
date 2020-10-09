@@ -1,6 +1,6 @@
 // Generate permutations
 
-export default function permutations(array) {
+export default function Permutations(array) {
 
     let n = array.length;
     let result = '';

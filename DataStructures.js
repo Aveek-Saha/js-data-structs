@@ -686,7 +686,7 @@ function powerSet(array, index = 0, curr = '') {
     let result = [];
     let len = array.length;
 
-    powSet(index = 0, curr = '');
+    powSet(index, curr);
     function powSet(index = 0, curr = '') {
 
         // Base case
@@ -1015,21 +1015,23 @@ exports.zSearch = zSearch;
 
 // console.log(zSearch(text, 'ab'));
 
+// N Queens
+
 function Nqueens(n) {
 
     let board = Array.from(Array(n), () => Array.from(Array(n), () => 0));
 
     solve(0);
     function isSafe(row, col) {
-        for (i = 0; i < col; i++) {
+        for (let i = 0; i < col; i++) {
             if (board[row][i] == 1)
                 return false;
         }
-        for (i = row, j = col; i >= 0 && j >= 0; i-- , j--) {
+        for (let i = row, j = col; i >= 0 && j >= 0; i-- , j--) {
             if (board[i][j] == 1)
                 return false;
         }
-        for (i = row, j = col; j >= 0 && i < n; i++ , j--) {
+        for (let i = row, j = col; j >= 0 && i < n; i++ , j--) {
             if (board[i][j] == 1)
                 return false;
         }
