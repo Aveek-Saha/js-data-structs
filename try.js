@@ -1,15 +1,19 @@
-var BinaryTree = require('./dist/js-data-structs.cjs').BinaryTree;
-var order = require('./dist/js-data-structs.cjs').order;
+var { Stack } = require('./dist/js-data-structs.cjs');
 
-var tree = BinaryTree('4');
+var stk = Stack();
 
-var a = tree.root.addChild('2');
-var b = tree.root.addChild('5');
+stk.push(1);
+stk.push(2);
+stk.push(3);
 
-var c = a.addChild('1');
-var d = a.addChild('3');
+console.log(stk.peek());
 
-var e = b.addChild('6');
-var f = b.addChild('7');
+stk.push(5);
+stk.push(9);
 
-console.log(tree.display(order.pre));
+var x = stk.pop();
+x = stk.pop();
+
+
+console.log(stk.peek());
+console.log(x);
