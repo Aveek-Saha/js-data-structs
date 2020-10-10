@@ -16,6 +16,8 @@ export { default as PowerSet } from './powerset';
 export { default as Permutations } from './permutations';
 export { default as createLinkedNode } from './add_linked_node';
 export { default as LinkedList } from './linked_list';
+export { default as createDoublyLinkedNode } from './add_doubly_linked_node';
+export { default as DoublyLinkedList } from './doubly_linked_list';
 export { default as heapify } from './heapify';
 export { default as heapifyMin } from './heapify_min';
 export { default as HeapSort } from './heapsort';
