@@ -35,6 +35,15 @@ export default function Graph(directed = false, weighted = false) {
                 edges.push([node2, node1, weight]);
             }
         },
+        displayEdges() {
+            let disEdges = [];
+
+            this.edges.forEach(edge => {
+                disEdges.push([edge[0].value, edge[1].value], edge[2]);
+            });
+
+            return disEdges;
+        },
         BFS(startValue) {
             let order = [];
             let startNode = this.getNode(startValue);
@@ -132,7 +141,6 @@ export default function Graph(directed = false, weighted = false) {
                 distance[node.value] = Number.MAX_SAFE_INTEGER;
                 set[node.value] = false;
             });
-            console.log(edges.length);
 
             distance[this.getNode(start).value] = 0;
 
