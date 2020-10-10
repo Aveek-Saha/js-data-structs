@@ -25,4 +25,12 @@ describe('Check Doubly Linked List methods', () => {
         expect(list.isEmpty()).toBeFalsy();
         expect(list.print()).toMatch('C, B, A, D, E, F');
     });
+
+    it('Should be able to insert to specific position', () => {
+        list.insertAt('G', 1);
+
+        expect(list.isEmpty()).toBeFalsy();
+        expect(list.print()).toMatch('C, G, B, A, D, E, F');
+        expect(list.insertAt('H', -1)).toMatch('Index out of bounds');
+    });
 });
