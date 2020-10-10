@@ -93,7 +93,26 @@ export default function DoublyLinkedList() {
 
             return this.tail;
         },
-        removeFrom() {},
+        removeFrom(position) {
+            let current = this.head;
+            let index = 0;
+            let out_of_bounds = 'Index out of bounds';
+
+            if (position < 0 || position > this.length) return out_of_bounds;
+
+            if (position == index) {
+                this.removeHead();
+            } else if (position == this.length) {
+                this.removeTail();
+            } else {
+                while (index++ < position) {
+                    current = current.next;
+                }
+                let next = current.next;
+                current.previous.next = current.next;
+                next.previous = current.previous;
+            }
+        },
         print() {
             let current = this.head;
             let listStr = '';
