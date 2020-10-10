@@ -73,7 +73,14 @@ export default function DoublyLinkedList() {
 
             return this.head;
         },
-        removeTail() {},
+        removeTail() {
+            if (!this.tail) return 'No tail';
+
+            this.tail.previous.next = null;
+            this.tail = this.tail.previous;
+
+            return this.tail;
+        },
         removeFrom() {},
         print() {
             let current = this.head;
