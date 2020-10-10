@@ -65,7 +65,14 @@ export default function DoublyLinkedList() {
             }
         },
         getItemAt() {},
-        removeHead() {},
+        removeHead() {
+            if (!this.head) return 'No head';
+
+            this.head.next.previous = null;
+            this.head = this.head.next;
+
+            return this.head;
+        },
         removeTail() {},
         removeFrom() {},
         print() {
