@@ -64,7 +64,19 @@ export default function DoublyLinkedList() {
                 current.previous = node;
             }
         },
-        getItemAt() {},
+        getItemAt(position) {
+            let current = this.head;
+            let index = 0;
+            let out_of_bounds = 'Index out of bounds';
+
+            if (position < 0 || position > this.length) return out_of_bounds;
+
+            while (index++ < position) {
+                current = current.next;
+            }
+
+            return current;
+        },
         removeHead() {
             if (!this.head) return 'No head';
 
