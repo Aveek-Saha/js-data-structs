@@ -12,6 +12,7 @@ export default function DoublyLinkedList() {
         },
         insertHead(value) {
             let node = createDoublyLinkedNode(value);
+
             if (this.head == null) {
                 this.head = node;
                 this.tail = node;
@@ -25,7 +26,22 @@ export default function DoublyLinkedList() {
                 return node;
             }
         },
-        insertTail() {},
+        insertTail(value) {
+            let node = createDoublyLinkedNode(value);
+
+            if (this.tail == null) {
+                this.head = node;
+                this.tail = node;
+                this.length++;
+                return node;
+            } else {
+                this.tail.next = node;
+                node.previous = this.tail;
+                this.tail = node;
+                this.length++;
+                return node;
+            }
+        },
         insertAt() {},
         getItemAt() {},
         removeHead() {},
