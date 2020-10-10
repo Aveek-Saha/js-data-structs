@@ -47,4 +47,8 @@ describe('Check Doubly Linked List methods', () => {
         expect(list.isEmpty()).toBeFalsy();
         expect(list.print()).toMatch('G, B, A, D, E');
     });
+
+    it('Should get the node in specific position', () => {
+        expect(list.getItemAt(1).value).toMatch('B');
+    });
 });
