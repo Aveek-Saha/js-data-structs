@@ -50,5 +50,13 @@ describe('Check Doubly Linked List methods', () => {
 
     it('Should get the node in specific position', () => {
         expect(list.getItemAt(1).value).toMatch('B');
+        expect(list.getItemAt(-1)).toMatch('Index out of bounds');
+    });
+
+    it('Should remove node from specific position', () => {
+        list.removeFrom(2);
+
+        expect(list.print()).toMatch('G, B, D, E');
+        expect(list.removeFrom(-1)).toMatch('Index out of bounds');
     });
 });
