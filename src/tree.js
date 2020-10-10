@@ -1,4 +1,4 @@
-import { default as addNode } from './add_node';
+import { default as addNode } from './add_tree_node';
 
 // Trees
 
