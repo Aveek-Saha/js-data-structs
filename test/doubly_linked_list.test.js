@@ -40,4 +40,11 @@ describe('Check Doubly Linked List methods', () => {
         expect(list.isEmpty()).toBeFalsy();
         expect(list.print()).toMatch('G, B, A, D, E, F');
     });
+
+    it('Should be able to remove the Tail', () => {
+        list.removeTail();
+
+        expect(list.isEmpty()).toBeFalsy();
+        expect(list.print()).toMatch('G, B, A, D, E');
+    });
 });
