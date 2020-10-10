@@ -33,4 +33,11 @@ describe('Check Doubly Linked List methods', () => {
         expect(list.print()).toMatch('C, G, B, A, D, E, F');
         expect(list.insertAt('H', -1)).toMatch('Index out of bounds');
     });
+
+    it('Should be able to remove the Head', () => {
+        list.removeHead();
+
+        expect(list.isEmpty()).toBeFalsy();
+        expect(list.print()).toMatch('G, B, A, D, E, F');
+    });
 });
