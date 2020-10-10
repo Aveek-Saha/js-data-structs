@@ -16,4 +16,13 @@ describe('Check Doubly Linked List methods', () => {
         expect(list.isEmpty()).toBeFalsy();
         expect(list.print()).toMatch('C, B, A');
     });
+
+    it('Should be able to insert to Tail', () => {
+        list.insertTail('D');
+        list.insertTail('E');
+        list.insertTail('F');
+
+        expect(list.isEmpty()).toBeFalsy();
+        expect(list.print()).toMatch('C, B, A, D, E, F');
+    });
 });
