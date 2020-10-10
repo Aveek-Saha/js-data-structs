@@ -42,7 +42,28 @@ export default function DoublyLinkedList() {
                 return node;
             }
         },
-        insertAt() {},
+        insertAt(value, position) {
+            let node = createDoublyLinkedNode(value);
+            let current = this.head;
+            let index = 0;
+            let out_of_bounds = 'Index out of bounds';
+
+            if (position < 0 || position > this.length) return out_of_bounds;
+
+            if (position == index) {
+                this.insertHead(value);
+            } else if (position == this.length) {
+                this.insertTail(value);
+            } else {
+                while (index++ < position) {
+                    current = current.next;
+                }
+                node.previous = current.previous;
+                node.next = current;
+                current.previous.next = node;
+                current.previous = node;
+            }
+        },
         getItemAt() {},
         removeHead() {},
         removeTail() {},
