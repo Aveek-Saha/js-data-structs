@@ -85,7 +85,7 @@ describe('Check all graph functions', () => {
         g.addEdge(6, 8, 6);
         g.addEdge(7, 8, 7);
 
-        expect(g.BFS(3)).toEqual([3, 2, 4, 5, 1, 8, 6, 0, 7]);
+        expect(g.BFS(3).toString()).toBe('3,2,4,5,1,8,6,0,7');
     });
 
     it('should sort nodes in topological order', () => {
@@ -100,7 +100,7 @@ describe('Check all graph functions', () => {
         g.addEdge('E', 'H');
         g.addEdge('F', 'G');
 
-        expect(g.topologicalSort()).toEqual(['B', 'D', 'A', 'C', 'E', 'H', 'F', 'G']);
+        expect(g.topologicalSort().toString()).toBe('B,D,A,C,E,H,F,G');
     });
 
     it('should return the shortest distance of all nodes from the start node', () => {

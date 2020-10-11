@@ -1,8 +1,7 @@
-import { alphabetSize } from './constants';
 import { default as createTrieNode } from './add_trie_node';
 
 
-export default function Trie() {
+export default function Trie(alphabetSize) {
     let root = createTrieNode(alphabetSize);
 
     return {

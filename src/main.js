@@ -11,7 +11,7 @@ export { default as PriorityQueue } from './priority_queue';
 export { default as createGraphNode } from './add_graph_node';
 export { default as Graph } from './graph';
 export { default as createTrieNode } from './add_trie_node';
-export { default as trie } from './trie';
+export { default as Trie } from './trie';
 export { default as PowerSet } from './powerset';
 export { default as Permutations } from './permutations';
 export { default as createLinkedNode } from './add_linked_node';
