@@ -108,6 +108,8 @@ export default function LinkedList() {
         display() {
 
             let curr = this.head;
+            if(curr === null)
+                return '';
             let result = '';
             while (curr.next != null) {
                 result += curr.value.toString() + ' ➞ ';
