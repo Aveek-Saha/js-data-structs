@@ -46,6 +46,7 @@ A small data structures and algorithms library for JavaScript.
 - Power set
 - Heap's algorithm (array permutations)
 - Linked List
+- Doubly Linked List
 - Heap Sort
     - Max heap
     - Min heap
@@ -85,7 +86,7 @@ New algorithms or data structures are added to `./src/` and you also have to add
 
 - [x] Linked List
     - [ ] Circular Linked List
-    - [ ] Doubly Linked List
+    - [x] Doubly Linked List
 - [x] Heapsort
     - [x] Max heap
     - [x] Min heap

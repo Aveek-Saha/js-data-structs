@@ -1,17 +1,17 @@
 var { BinaryTree, order } = require('../dist/js-data-structs.cjs');
 
-var tree = BinaryTree('4');
-
-var a = tree.root.addChild('2');
-var b = tree.root.addChild('5');
-
-a.addChild('1');
-a.addChild('3');
-
-b.addChild('6');
-b.addChild('7');
-
 describe('Check if nodes are printing in the correct order', () => {
+    var tree = BinaryTree('4');
+
+    var a = tree.root.addChild('2');
+    var b = tree.root.addChild('5');
+
+    a.addChild('1');
+    a.addChild('3');
+
+    b.addChild('6');
+    b.addChild('7');
+
     it('should print nodes in post order', () => {
         expect(tree.display(order.post)).toBe('1 3 2 6 7 5 4 ');
     });
