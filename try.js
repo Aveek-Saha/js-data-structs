@@ -1,18 +1,9 @@
-var { HeapSort } = require('./dist/js-data-structs.cjs');
+var { LZW } = require('./dist/js-data-structs.cjs');
 
-var arr = [
-    { key: 4, data: 'a' }, 
-    { key: 1, data: 'b' }, 
-    { key: 3, data: 'c' }, 
-    { key: 5, data: 'd' }, 
-    { key: 2, data: 'e' }
-];
-HeapSort(arr, true);
+let string = 'W#hdppmQccXXurfjxrrrjfjnvQa8%%%%%%%MbJpW%&*mmOJJJJLQ0Omh&%%%%%BBBBBBB%%%%%%8a0CUUYXzYzzzcuxnr/1{{)';
 
-var data = [];
+let lzw = LZW('@$B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\' ^`.');
+console.log('Original length:', string.length);
+console.log('Encoded length:', lzw.encode(string).length);
 
-arr.forEach(e => {
-    data.push(e.data);
-});
-
-console.log(data.toString());
+console.log(lzw.decode(lzw.encode(string)) == string);
