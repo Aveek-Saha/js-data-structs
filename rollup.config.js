@@ -1,4 +1,4 @@
-import {terser} from 'rollup-plugin-terser';
+// import {terser} from 'rollup-plugin-terser';
 import { babel } from '@rollup/plugin-babel';
 import { eslint } from 'rollup-plugin-eslint';
 import pkg from './package.json';
@@ -30,6 +30,6 @@ export default {
             exclude: ['node_modules/**'],
             babelHelpers: 'bundled'
         }),
-        terser()
+        // terser()
     ]
 };
