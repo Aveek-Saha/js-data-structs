@@ -150,7 +150,8 @@ export default function Graph(directed = false, weighted = false) {
 
                 nodes.forEach(node => {
                     let w = 0;
-                    for (const edge of edges) {
+                    for (let i = 0; i < edges.length; i++) {
+                        var edge = edges[i];
                         if ((edge[0].value == u.value && edge[1].value == node.value) ||
                             (edge[1].value == u.value && edge[2].value == node.value)) {
                             w = edge[2];
