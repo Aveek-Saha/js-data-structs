@@ -1,6 +1,23 @@
-var { RabinKarp } = require('./dist/js-data-structs.cjs');
+var { Graph } = require('./dist/js-data-structs.cjs');
 
-var text = 'AABAACAADAABAABA';
-var pattern = 'AABA';
+// var text = 'AABAACAADAABAABA';
+// var pattern = 'AABA';
 
-console.log(RabinKarp(pattern, text, 101, 256));
+// console.log(RabinKarp(pattern, text, 101, 256));
+
+var matrix = [
+    [0, 1, 0, 0, 0, 0, 0, 1, 0],
+    [1, 0, 1, 0, 0, 0, 0, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 0, 1],
+    [0, 0, 1, 0, 1, 1, 0, 0, 0],
+    [0, 0, 0, 1, 0, 1, 0, 0, 0],
+    [0, 0, 1, 1, 1, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0, 1, 0, 1, 1],
+    [1, 1, 0, 0, 0, 0, 1, 0, 1],
+    [0, 0, 1, 0, 0, 0, 1, 1, 0]
+];
+var g = Graph(true, false);
+
+g.fromAdjMatrix(matrix);
+
+console.log(g.displayEdges());
