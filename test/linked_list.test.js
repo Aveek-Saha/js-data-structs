@@ -6,6 +6,7 @@ describe('Check Linked list functions', () => {
         var list = LinkedList();
 
         expect(list.display()).toBe('');
+        expect(list.isEmpty()).toBe(true);
     });
 
     it('should return 0 length if list is empty', () => {
@@ -45,6 +46,11 @@ describe('Check Linked list functions', () => {
         var x = list.pop();
         expect(list.display()).toBe('0 ➞ 1 ➞ 2');
         expect(x).toEqual({ value: '3', next: null });
+        list.pop();
+        list.pop();
+
+        x = list.pop();
+        expect(x).toEqual({ value: '0', next: null });
 
     });
 
@@ -72,6 +78,9 @@ describe('Check Linked list functions', () => {
         list.pop();
         list.insertAt(2, '7');
         expect(list.display()).toBe('0 ➞ 1 ➞ 7 ➞ 2 ➞ 3');
+
+        list.insertAt(0, '8');
+        expect(list.display()).toBe('8 ➞ 0 ➞ 1 ➞ 7 ➞ 2 ➞ 3');
     });
 
     it('should delete the node at the index specified', () => {
