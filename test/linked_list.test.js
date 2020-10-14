@@ -64,6 +64,8 @@ describe('Check Linked list functions', () => {
         });
 
         expect(list.get(2)).toEqual({ value: '2', next: { value: '3', next: { value: '4', next: null } } });
+        expect(list.get(7)).toBe(null);
+        expect(list.get(0)).toEqual({next: {next: {next: {next: {next: null, value: '4'}, value: '3'}, value: '2'}, value: '1'}, value: '0'});
     });
 
     it('should insert the node at the index specified', () => {
@@ -109,10 +111,18 @@ describe('Check Linked list functions', () => {
             list.push(val);
         });
 
-        list.pop();
         list.insertAt(2, '7');
         var x = list.delete(0);
         expect(x.value).toBe('0');
+
+        x = list.delete(2);
+        expect(x.value).toBe('2');
+
+        x = list.delete(5);
+        expect(x).toBe(null);
+
+        x = list.delete(3);
+        expect(x.value).toBe('4');
     });
 
 
