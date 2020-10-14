@@ -4,6 +4,9 @@ describe('Check stack functions', () => {
     it('should create an empty stack', () => {
         var stk = Stack();
         expect(stk.isEmpty()).toBe(true);
+        stk.push(1);
+        expect(stk.isEmpty()).toBe(false);
+
     });
 
     it('should show most recently added element', () => {

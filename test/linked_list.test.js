@@ -81,6 +81,23 @@ describe('Check Linked list functions', () => {
 
         list.insertAt(0, '8');
         expect(list.display()).toBe('8 ➞ 0 ➞ 1 ➞ 7 ➞ 2 ➞ 3');
+
+        list.insertAt(6, '9');
+        expect(list.display()).toBe('8 ➞ 0 ➞ 1 ➞ 7 ➞ 2 ➞ 3 ➞ 9');
+    });
+
+    it('should not insert the node if given index > length of list', () => {
+
+        var list = LinkedList();
+        var vals = ['0', '1', '2', '3', '4'];
+
+        vals.forEach(val => {
+            list.push(val);
+        });
+
+        list.pop();
+        expect(list.insertAt(6, '7')).toBe(null);
+
     });
 
     it('should delete the node at the index specified', () => {

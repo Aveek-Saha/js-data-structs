@@ -2,8 +2,7 @@ var { PowerSet } = require('../dist/js-data-structs.cjs');
 
 describe('Check power set', () => {
     it('should generate the powerset of the given array', () => {
-
-        expect(PowerSet([1, 2, 3, 4, 5, 6])).toStrictEqual([
+        var set = [
             [ '1', '2', '3', '4', '5', '6' ],
             [ '1', '2', '3', '4', '5' ],
             [ '1', '2', '3', '4', '6' ],
@@ -68,7 +67,9 @@ describe('Check power set', () => {
             [ '5' ],
             [ '6' ],
             []
-        ]);
+        ];
+        expect(PowerSet([1, 2, 3, 4, 5, 6])).toStrictEqual(set);
+        expect(PowerSet([1, 2, 3, 4, 5, 6], 0, '')).toStrictEqual(set);
     });
 });
 

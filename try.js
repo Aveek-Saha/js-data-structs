@@ -16,8 +16,9 @@ var matrix = [
     [1, 1, 0, 0, 0, 0, 1, 0, 1],
     [0, 0, 1, 0, 0, 0, 1, 1, 0]
 ];
-var g = Graph(true, false);
+var g = Graph();
 
 g.fromAdjMatrix(matrix);
 
-console.log(g.displayEdges());
+console.log(g.findEdgeWeight(5, 2));
+// console.log(g.edges);

@@ -178,10 +178,11 @@ export default function Graph(directed = false, weighted = false) {
             }
         },
         findEdgeWeight(u, v) {
-            edges.forEach(edge => {
-                if ((edge[0].value == u && edge[1].value == v) || (edge[1].value == u && edge[2].value == v))
-                    return edge[2];
-            });
+            function match(edge){
+                return (edge[0].value == u && edge[1].value == v) || (edge[1].value == u && edge[0].value == v);
+            }
+            var res = this.edges.find(match);
+            return res[2];
         }
     };
 }
