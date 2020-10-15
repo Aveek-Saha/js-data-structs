@@ -8,7 +8,7 @@
   "scripts": {
     "prepare": "rollup -c",
     "lint": "npx eslint ./src/",
-    "test": "jest --verbose ./test"
+    "test": "jest --verbose --coverage ./test"
   },
   "files": [
     "dist"
