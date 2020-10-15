@@ -9,7 +9,7 @@ JS data structs<br>
 <img src ="https://img.shields.io/npm/v/js-data-structs.svg?style=for-the-badge">
 <!-- <img alt="jsDelivr hits (npm)" src="https://img.shields.io/jsdelivr/npm/hm/js-data-structs?style=for-the-badge"> -->
 <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/js-data-structs?style=for-the-badge">
-
+<img alt="Codecov" src="https://img.shields.io/codecov/c/gh/aveek-saha/js-data-structs?style=for-the-badge">
 </h3>
 
 
