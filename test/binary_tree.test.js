@@ -1,5 +1,4 @@
-var {BinaryTree, order} = require('../dist/js-data-structs.cjs');
-
+var { BinaryTree, order } = require('../dist/js-data-structs.cjs');
 
 var tree = BinaryTree('4');
 

@@ -5,7 +5,7 @@ describe('Check Binary search', () => {
         var text = 'AABAACAADAABAABA';
         var pattern = 'AABA';
 
-        expect(RabinKarp(pattern, text, 101, 256)).toEqual([ 0, 9, 12 ]);
+        expect(RabinKarp(pattern, text, 101, 256)).toEqual([0, 9, 12]);
     });
 
     it('should return empty array if the element is not found', () => {
@@ -14,5 +14,4 @@ describe('Check Binary search', () => {
 
         expect(RabinKarp(pattern, text, 101, 256)).toEqual([]);
     });
-
 });

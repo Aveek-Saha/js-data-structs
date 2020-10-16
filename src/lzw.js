@@ -1,13 +1,13 @@
 // LZW compression
 
 export default function LZW(chars = null) {
-
     let allChars;
     if (!chars) {
         allChars = Array.apply(null, Array(127 - 32))
             .map(function (x, i) {
                 return String.fromCharCode(i + 32);
-            }).join('');
+            })
+            .join('');
     } else {
         allChars = chars;
     }
@@ -17,7 +17,7 @@ export default function LZW(chars = null) {
             let dict = {};
             let code = 0;
 
-            allChars.split('').forEach(char => {
+            allChars.split('').forEach((char) => {
                 dict[char] = code;
                 code += 1;
             });
@@ -43,7 +43,7 @@ export default function LZW(chars = null) {
         decode(encoded) {
             let dict = {};
             let code = 0;
-            allChars.split('').forEach(char => {
+            allChars.split('').forEach((char) => {
                 dict[code] = char;
                 code += 1;
             });
@@ -51,7 +51,8 @@ export default function LZW(chars = null) {
             let old = encoded[0];
             let string = dict[old];
             let next;
-            let s, c = string[0];
+            let s,
+                c = string[0];
 
             for (let i = 1; i < encoded.length; i++) {
                 next = encoded[i];
@@ -70,5 +71,4 @@ export default function LZW(chars = null) {
             return string;
         }
     };
-    
 }

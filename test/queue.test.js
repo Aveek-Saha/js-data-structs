@@ -7,7 +7,6 @@ describe('Check queue functions', () => {
     });
 
     it('should show the first element in the queue', () => {
-
         var q = Queue();
         q.enqueue(4);
         q.enqueue(1);
