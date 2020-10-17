@@ -27,6 +27,10 @@ A small data structures and algorithms library for JavaScript.
 `https://cdn.jsdelivr.net/npm/js-data-structs/DataStructures.min.js`
 
 ## Implemented Data structures/ Algos-
+
+<details>
+<summary>Expand</summary>
+
 - Trees
     - Binary Trees
     - Binary Search Trees
@@ -53,11 +57,17 @@ A small data structures and algorithms library for JavaScript.
 - Fisher–Yates shuffle Algorithm
 - Binary Search
 - Rabin Karp
+    
+</details>
+
 
 ### [Usage guide](https://data-structs.netlify.com/guide/trees.html)
 
 
 # Future features
+<details>
+<summary>Expand</summary>
+
 - [x] Minified version
 
 - [x] Linked List
@@ -73,3 +83,4 @@ A small data structures and algorithms library for JavaScript.
 - [x] LZW
     - [x] Encoding
     - [x] Decoding
+</details>
