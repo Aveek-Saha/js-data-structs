@@ -5,7 +5,7 @@ describe('Check LZW algorithm', () => {
         let string =
             'W#hdppmQccXXurfjxrrrjfjnvQa8%%%%%%%MbJpW%&*mmOJJJJLQ0Omh&%%%%%BBBBBBB%%%%%%8a0CUUYXzYzzzcuxnr/1{{)';
         let lzw = LZW(
-            '@$B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:, ^`.'
+            "@$B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,' ^`."
         );
 
         expect(lzw.decode(lzw.encode(string))).toBe(string);
