@@ -1,0 +1,10 @@
+{
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "coverageThreshold": {
+      "global": {
+        "functions": 100
+      }
+    }
+  }

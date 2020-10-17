@@ -60,6 +60,19 @@ A small data structures and algorithms library for JavaScript.
     
 </details>
 
+# Contributing
+ 
+Before contributing please read [CONTRIBUTING.md](https://github.com/Aveek-Saha/js-data-structs/blob/master/CONTRIBUTING.md) for guidelines.
+ 
+In addition to the guidelines mentioned in `CONTRIBUTING.md` there are some additional things to keep in mind while raising pull requests. Before your pull request can be accepted there are some checks that have to pass. To run these checks localy-
+ 
+- `npm run prepare` to compile with Rollup and Babel
+- `npm run format` to format with Prettier
+- `npm run lint` to check for linting errors
+- `npm test` to run the Jest unit tests
+ 
+New algorithms or data structures are added to `./src/` and you also have to add test cases for all functions implemented in the `./test/` folder.
+
 
 ### [Usage guide](https://data-structs.netlify.com/guide/trees.html)
 
