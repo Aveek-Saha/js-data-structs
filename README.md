@@ -22,9 +22,9 @@ A small data structures and algorithms library for JavaScript.
 [**NPM page**](https://www.npmjs.com/package/js-data-structs)
 
 ### CDN
-`https://cdn.jsdelivr.net/npm/js-data-structs/DataStructures.js`
+`https://cdn.jsdelivr.net/npm/js-data-structs@latest/dist/js-data-structs.umd.js`
 
-`https://cdn.jsdelivr.net/npm/js-data-structs/DataStructures.min.js`
+[**jsDeliver**](https://www.jsdelivr.com/package/npm/js-data-structs)
 
 ## Implemented Data structures/ Algos-
 
