@@ -1,21 +1,18 @@
 var { LinkedList } = require('../dist/js-data-structs.cjs');
 
 describe('Check Linked list functions', () => {
-    it('should return empty string if list has no elements', () => {
-        var list = LinkedList();
+    var list = LinkedList();
 
+    it('should return empty string if list has no elements', () => {
         expect(list.display()).toBe('');
         expect(list.isEmpty()).toBe(true);
     });
 
     it('should return 0 length if list is empty', () => {
-        var list = LinkedList();
-
         expect(list.length).toBe(0);
     });
 
     it('should add elements to the end of linked list', () => {
-        var list = LinkedList();
         var vals = ['0', '1', '2'];
 
         vals.forEach((val) => {
@@ -28,12 +25,7 @@ describe('Check Linked list functions', () => {
     });
 
     it('should remove element from end of linked list', () => {
-        var list = LinkedList();
-        var vals = ['0', '1', '2', '3', '4'];
-
-        vals.forEach((val) => {
-            list.push(val);
-        });
+        list.push('4');
 
         list.pop();
         expect(list.display()).toBe('0 ➞ 1 ➞ 2 ➞ 3');
@@ -46,10 +38,10 @@ describe('Check Linked list functions', () => {
 
         x = list.pop();
         expect(x).toEqual({ value: '0', next: null });
+        expect(list.isEmpty()).toBe(true);
     });
 
     it('should return the node at the index specified', () => {
-        var list = LinkedList();
         var vals = ['0', '1', '2', '3', '4'];
 
         vals.forEach((val) => {
@@ -74,13 +66,6 @@ describe('Check Linked list functions', () => {
     });
 
     it('should insert the node at the index specified', () => {
-        var list = LinkedList();
-        var vals = ['0', '1', '2', '3', '4'];
-
-        vals.forEach((val) => {
-            list.push(val);
-        });
-
         list.pop();
         list.insertAt(2, '7');
         expect(list.display()).toBe('0 ➞ 1 ➞ 7 ➞ 2 ➞ 3');
@@ -93,15 +78,7 @@ describe('Check Linked list functions', () => {
     });
 
     it('should not insert the node if given index > length of list', () => {
-        var list = LinkedList();
-        var vals = ['0', '1', '2', '3', '4'];
-
-        vals.forEach((val) => {
-            list.push(val);
-        });
-
-        list.pop();
-        expect(list.insertAt(6, '7')).toBe(null);
+        expect(list.insertAt(6, '10')).toBe(null);
     });
 
     it('should delete the node at the index specified', () => {
