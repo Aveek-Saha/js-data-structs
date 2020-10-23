@@ -7,8 +7,6 @@ describe('Check Z algorithm', () => {
     });
 
     it('should return empty array if pattern not found', () => {
-        var text = 'aabcaabxaaaz';
-
-        expect(ZSearch(text, 'asb')).toEqual([]);
+        expect(ZSearch('aabcaabxaaaz', 'asb')).toEqual([]);
     });
 });
