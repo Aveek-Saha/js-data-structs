@@ -78,7 +78,7 @@ describe('Check Linked list functions', () => {
     });
 
     it('should not insert the node if given index > length of list', () => {
-        expect(list.insertAt(6, '10')).toBe(null);
+        expect(list.insertAt(8, '10')).toBe(null);
     });
 
     it('should delete the node at the index specified', () => {
