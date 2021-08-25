@@ -1,5 +1,10 @@
 // N Queens
 
+/**
+ * This function solves the N Queens problem.
+ * @param {number} n - The number of queens
+ * @returns {number[]} - A nXn matrix containing the solution.
+ */
 export default function Nqueens(n) {
     let board = Array.from(Array(n), () => Array.from(Array(n), () => 0));
 
