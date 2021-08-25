@@ -3,6 +3,12 @@ import { default as heapifyMin } from './heapify_min';
 
 // Heap Sort
 
+/**
+ * This function sorts an array using heap sort.
+ * @param {any[]} array - The array of elements to sort
+ * @param {boolean} [min=false] - True if min heap sort, false by default
+ * @returns {any[]} - The sorted array.
+ */
 export default function HeapSort(array, min = false) {
     let n = array.length;
     for (let i = parseInt(n / 2 - 1); i > -1; i--) {
