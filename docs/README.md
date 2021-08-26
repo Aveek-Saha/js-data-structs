@@ -2,10 +2,63 @@
 
 ### Table of Contents
 
-*   [RabinKarp][1]
+*   [HeapSort][1]
     *   [Parameters][2]
-*   [LevenshteinDistance][3]
+*   [Nqueens][3]
     *   [Parameters][4]
+*   [BinarySearch][5]
+    *   [Parameters][6]
+*   [FisherYates][7]
+    *   [Parameters][8]
+*   [RabinKarp][9]
+    *   [Parameters][10]
+*   [LevenshteinDistance][11]
+    *   [Parameters][12]
+
+## HeapSort
+
+This function sorts an array using heap sort.
+
+### Parameters
+
+*   `array` **[Array][13]\<any>** The array of elements to sort
+*   `min` **[boolean][14]** True if min heap sort, false by default (optional, default `false`)
+
+Returns **[Array][13]\<any>** The sorted array.
+
+## Nqueens
+
+This function solves the N Queens problem.
+
+### Parameters
+
+*   `n` **[number][15]** The number of queens
+
+Returns **[Array][13]<[number][15]>** A nXn matrix containing the solution.
+
+## BinarySearch
+
+This function finds the index of the key in the array using binary search.
+
+### Parameters
+
+*   `arr` **[Array][13]\<any>** The array of elements to search from
+*   `l` **[number][15]** The start of the array (0)
+*   `r` **[number][15]** The length of the array (array length)
+*   `key` **any** The element to look for in the array
+
+Returns **[number][15]** The index at which the element was found in the array, -1 if not found.
+
+## FisherYates
+
+This function randomly shuffles an array using the Fisher-Yates algorithm.
+
+### Parameters
+
+*   `array`  
+*   `arr` **[Array][13]\<any>** The array of elements to shuffle
+
+Returns **[Array][13]\<any>** The shuffled array.
 
 ## RabinKarp
 
@@ -13,12 +66,12 @@ This function finds all occurrences of a pattern in a text.
 
 ### Parameters
 
-*   `pattern` **[string][5]** the pattern to search for
-*   `text` **[string][5]** the string to search for in the pattern in
-*   `prime` **[number][6]** a prime number to use for hashing
-*   `num_chars` **[number][6]** the number of possible characters used
+*   `pattern` **[string][16]** The pattern to search for
+*   `text` **[string][16]** The string to search for in the pattern in
+*   `prime` **[number][15]** A prime number to use for hashing
+*   `num_chars` **[number][15]** The number of possible characters used
 
-Returns **[Array][7]** a list of all indices where the pattern occurs.
+Returns **[Array][13]<[number][15]>** A list of all indices where the pattern occurs.
 
 ## LevenshteinDistance
 
@@ -26,21 +79,39 @@ This function finds the Levenshtein distance between two strings.
 
 ### Parameters
 
-*   `a` **[string][5]** any string
-*   `b` **[string][5]** any string
+*   `a` **[string][16]** any string
+*   `b` **[string][16]** any string
 
-Returns **[number][6]** the minimum edit distance between the two strings.
+Returns **[number][15]** the minimum edit distance between the two strings.
 
-[1]: #rabinkarp
+[1]: #heapsort
 
 [2]: #parameters
 
-[3]: #levenshteindistance
+[3]: #nqueens
 
 [4]: #parameters-1
 
-[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[5]: #binarysearch
 
-[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[6]: #parameters-2
 
-[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[7]: #fisheryates
+
+[8]: #parameters-3
+
+[9]: #rabinkarp
+
+[10]: #parameters-4
+
+[11]: #levenshteindistance
+
+[12]: #parameters-5
+
+[13]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[15]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
