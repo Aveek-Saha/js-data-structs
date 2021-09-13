@@ -27,3 +27,4 @@ export { default as LZW } from './lzw';
 export { default as BinarySearch } from './binary_search';
 export { default as FisherYates } from './fisher_yates';
 export { default as RabinKarp } from './rabin_karp';
+export { default as LevenshteinDistance } from './levenshtein_distance';

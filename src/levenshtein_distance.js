@@ -1,9 +1,9 @@
 // Levenshtein Distance algorithm
 
 export default function LevenshteinDistance(a, b) {
-    let distanceTable = new Array(b.length + 1)
+    let distanceTable = new Array(a.length + 1)
         .fill(0)
-        .map(() => Array(a.length + 1).fill(0));
+        .map(() => Array(b.length + 1).fill(0));
 
     for (let i = 0; i <= a.length; i += 1) {
         for (let j = 0; j <= b.length; j += 1) {
