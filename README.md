@@ -17,12 +17,16 @@ A small data structures and algorithms library for JavaScript.
 
 ## Installing
 ### NPM package
-`npm i js-data-structs`
+```
+npm i js-data-structs
+```
 
 [**NPM page**](https://www.npmjs.com/package/js-data-structs)
 
 ### CDN
-`https://cdn.jsdelivr.net/npm/js-data-structs@latest/dist/js-data-structs.umd.js`
+```
+https://cdn.jsdelivr.net/npm/js-data-structs@latest/dist/js-data-structs.umd.js
+```
 
 [**jsDeliver**](https://www.jsdelivr.com/package/npm/js-data-structs)
 
@@ -58,6 +62,7 @@ A small data structures and algorithms library for JavaScript.
 - Fisher–Yates shuffle Algorithm
 - Binary Search
 - Rabin Karp
+- Levenshtein Distance
     
 </details>
 
@@ -65,7 +70,7 @@ A small data structures and algorithms library for JavaScript.
  
 Before contributing please read [CONTRIBUTING.md](https://github.com/Aveek-Saha/js-data-structs/blob/master/CONTRIBUTING.md) for guidelines.
  
-In addition to the guidelines mentioned in `CONTRIBUTING.md` there are some additional things to keep in mind while raising pull requests. Before your pull request can be accepted there are some checks that have to pass. To run these checks localy-
+In addition to the guidelines mentioned in `CONTRIBUTING.md` there are some additional things to keep in mind while raising pull requests. Before your pull request can be accepted there are some checks that have to pass. To run these checks locally-
  
 - `npm run prepare` to compile with Rollup and Babel
 - `npm run format` to format with Prettier
