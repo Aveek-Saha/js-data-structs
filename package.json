@@ -10,7 +10,8 @@
     "format": "prettier ./src/ --write && prettier ./test/ --write",
     "format-check": "prettier --check ./src/ && prettier --check ./test/",
     "lint": "eslint ./src/ && eslint ./test/",
-    "test": "jest --verbose --coverage ./test"
+    "test": "jest --verbose --coverage ./test",
+    "docs": "npx documentation build src/main.js -f md -o docs/README.md"
   },
   "files": [
     "dist"
