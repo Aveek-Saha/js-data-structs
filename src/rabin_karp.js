@@ -1,5 +1,13 @@
 // Rabin Karp
 
+/**
+ * This function finds all occurrences of a pattern in a text.
+ * @param {string} pattern The pattern to search for
+ * @param {string} text The string to search for in the pattern in
+ * @param {number} prime A prime number to use for hashing
+ * @param {number} num_chars The number of possible characters used
+ * @returns {Array<number>} A list of all indices where the pattern occurs.
+ */
 export default function RabinKarp(pattern, text, prime, num_chars) {
     var m = pattern.length;
     var n = text.length;

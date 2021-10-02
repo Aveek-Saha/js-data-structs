@@ -1,5 +1,11 @@
 // Levenshtein Distance algorithm
 
+/**
+ * This function finds the Levenshtein distance between two strings.
+ * @param {string} a any string
+ * @param {string} b any string
+ * @returns {number} the minimum edit distance between the two strings.
+ */
 export default function LevenshteinDistance(a, b) {
     let distanceTable = new Array(a.length + 1)
         .fill(0)
