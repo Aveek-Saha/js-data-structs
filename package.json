@@ -15,7 +15,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format && git add -A ."
+      "pre-commit": "echo \"Husky] pre-commit\""
     }
   },
   "files": [
