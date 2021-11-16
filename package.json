@@ -13,11 +13,6 @@
     "test": "jest --verbose --coverage ./test",
     "docs": "npx documentation build src/main.js -f md -o docs/README.md"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo \"Husky] pre-commit\""
-    }
-  },
   "files": [
     "dist"
   ],
